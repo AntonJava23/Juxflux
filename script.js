@@ -2,25 +2,32 @@ const app = {
     data() {
         return {
             missionCount: 0,
-            currentMission: 0,
-            age: 0,
-            party: 0,
-            name: 0,
-            portrait: 0,
-            beenMinister: false,
+            currentMission: null,
         }
     },
     methods: {
+        async fetchMissionCount() {
+            try {
+                const count = await getMissionCount();
+                this.missionCount = count;
+            } catch (error) {
+                console.error("Error fetching mission count:", error);
+            }
+        }
+    },
+    mounted() {
+        this.fetchMissionCount();
     }
 }
 
 async function getMissionCount() {
-    const resp = await fetch();
+    const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=1990&kn=&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=");
     if(resp.ok) {
         const data = await resp.json();
-        if (data.missionCount) {
-            return data.missionCount
-        }
+        const missionCount = data.personlista.person.personuppdrag.uppdrag.length;
+        return missionCount;        
+    } else {
+        throw new Error("Network resp was not ok.")
     }
 }
 
@@ -34,55 +41,6 @@ async function getCurrentMission() {
     }
 }
 
-async function getAge() {
-    const resp = await fetch();
-    if(resp.ok) {
-        const data = await resp.json();
-        if (data.age) {
-            return data.age
-        }
-    }
-}
-
-async function getParty() {
-    const resp = await fetch();
-    if(resp.ok) {
-        const data = await resp.json();
-        if (data.party) {
-            return data.party
-        }
-    }
-}
-
-async function getName() {
-    const resp = await fetch();
-    if(resp.ok) {
-        const data = await resp.json();
-        if (data.name) {
-            return data.name
-        }
-    }
-}
-
-async function getPortrait() {
-    const resp = await fetch();
-    if(resp.ok) {
-        const data = await resp.json();
-        if (data.portrait) {
-            return data.portrait
-        }
-    }
-}
-
-async function beenMinister() {
-    const resp = await fetch();
-    if(resp.ok) {
-        const data = await resp.json();
-        if (data.beenMinister) {
-            return data.beenMinister
-        }
-    }
-}
 
 
 
