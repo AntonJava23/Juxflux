@@ -2,33 +2,33 @@ const app = {
     data() {
         return {
             missionCount: 0,
-            currentMission: null,
+            portrait: 0,
         }
     },
     methods: {
-        async fetchMissionCount() {
+        async fetchData() {
             try {
                 const count = await getMissionCount();
                 this.missionCount = count;
+                const portrait = await getPortrait();
+                this.portrait = portrait;
             } catch (error) {
                 console.error("Error fetching mission count:", error);
             }
         }
     },
     mounted() {
-        this.fetchMissionCount();
+        this.fetchData();
     }
 }
 
 async function getMissionCount() {
-    const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=1990&kn=&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=");
+    const resp = await fetch("https://data.riksdagen.se/personlista/?f_ar=1990&parti=S&utformat=json");
     if(resp.ok) {
         const data = await resp.json();
         const missionCount = data.personlista.person.personuppdrag.uppdrag.length;
         return missionCount;        
-    } else {
-        throw new Error("Network resp was not ok.")
-    }
+    } 
 }
 
 async function getCurrentMission() {
@@ -40,6 +40,17 @@ async function getCurrentMission() {
         }
     }
 }
+
+async function getPortrait() {
+    const resp = await fetch("https://data.riksdagen.se/personlista/?f_ar=1990&parti=S&utformat=json")
+    if(resp.ok) {
+        const data = await resp.json();
+        const portrait = data.personlista.person.bild_url_192;
+        return portrait;
+    }
+}
+
+
 
 
 
