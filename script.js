@@ -8,9 +8,9 @@ const app = {
     methods: {
         async fetchData() {
             try {
-                const count = await getMissionCount();
+                const count = await getMissionCount("0598053101129");
                 this.missionCount = count;
-                const portrait = await getPortraitById(	"0598053101129");
+                const portrait = await getPortraitById("0598053101129");
                 this.portrait = portrait;
             } catch (error) {
                 console.error("Error fetching mission count:", error);
@@ -22,18 +22,21 @@ const app = {
     }
 }
 
-async function getMissionCount() {
-    const resp = await fetch("https://data.riksdagen.se/personlista/?f_ar=1990&parti=S&utformat=json");
-    if(resp.ok) {
+async function getMissionCount(intressent_id) {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&f_ar=1990&parti=S&utformat=json`);
+    if (resp.ok) {
         const data = await resp.json();
         const missionCount = data.personlista.person.personuppdrag.uppdrag.length;
-        return missionCount;        
-    } 
+        if (missionCount) {
+            return missionCount;
+        }
+    }
+    throw Error("No mission count found for the given ID")
 }
 
 async function getCurrentMission() {
     const resp = await fetch();
-    if(resp.ok) {
+    if (resp.ok) {
         const data = await resp.json();
         if (data.currentMission) {
             return data.currentMission
@@ -48,9 +51,8 @@ async function getPortraitById(intressent_id) {
         const person = data.personlista.person
         if (person) {
             return person.bild_url_192;
-        } else {
-            throw Error ("No portrait found for the given ID");
-        }    
+        }
     }
+    throw Error("No portrait found for the given ID");
 }
 Vue.createApp(app).mount("#app")
