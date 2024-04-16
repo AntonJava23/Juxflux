@@ -8,8 +8,8 @@ const app = {
     methods: {
         async fetchData() {
             try {
-                const count = await getMissionCount("0598053101129");
-                this.missionCount = count;
+                const missionCount = await getMissionCount("0598053101129");
+                this.missionCount = missionCount;
                 const portrait = await getPortraitById("0598053101129");
                 this.portrait = portrait;
             } catch (error) {
@@ -23,7 +23,7 @@ const app = {
 }
 
 async function getMissionCount(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&f_ar=1990&parti=S&utformat=json`);
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     if (resp.ok) {
         const data = await resp.json();
         const missionCount = data.personlista.person.personuppdrag.uppdrag.length;
@@ -35,17 +35,19 @@ async function getMissionCount(intressent_id) {
 }
 
 async function getCurrentMission() {
-    const resp = await fetch();
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     if (resp.ok) {
         const data = await resp.json();
+        const currentMission = data.personlista.person.personuppdrag.uppdrag
         if (data.currentMission) {
-            return data.currentMission
+            return currentMission
         }
     }
+    throw Error("No missions found for given ID")
 }
 
 async function getPortraitById(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&f_ar=1990&parti=S&utformat=json`);
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     if (resp.ok) {
         const data = await resp.json();
         const person = data.personlista.person
