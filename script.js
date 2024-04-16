@@ -3,6 +3,8 @@ const app = {
         return {
             missionCount: 0,
             portrait: 0,
+            fullName: 0,
+            age: ""
         }
     },
     methods: {
@@ -12,6 +14,10 @@ const app = {
                 this.missionCount = missionCount;
                 const portrait = await getPortraitById("0598053101129");
                 this.portrait = portrait;
+                const fullName = await getName();
+                this.fullName = fullName;
+                const age = await getAge();
+                this.age = age;
             } catch (error) {
                 console.error("Error fetching mission count:", error);
             }
@@ -57,4 +63,41 @@ async function getPortraitById(intressent_id) {
     }
     throw Error("No portrait found for the given ID");
 }
+
+async function getName() {
+    const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=")
+    if (resp.ok) {
+        const data = await resp.json();
+        if (data.personlista && data.personlista.person && data.personlista.person.length > 0) {
+            const firstName = data.personlista.person[0].tilltalsnamn;
+            const lastName = data.personlista.person[0].efternamn;
+            const fullName = firstName + " " + lastName;
+            return fullName;
+        }
+        return null;
+    }
+}
+
+async function getAge() {
+    const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=");
+    if (resp.ok) {
+        const data = await resp.json();
+        if(data.personlista && data.personlista.person && data.personlista.person.length > 0){
+            // const firstPerson = data.personlista.person[0];
+        
+        const birthYear = data.personlista.person[0].fodd_ar;
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        const age = currentYear - birthYear;
+        return age + "år";
+        }
+        else{
+            return null;
+        }
+    }
+    else{
+        console.error("Error getting the current age", error);
+    }
+}
+
 Vue.createApp(app).mount("#app")
