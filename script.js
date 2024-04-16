@@ -68,7 +68,7 @@ async function getName() {
     const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=")
     if (resp.ok) {
         const data = await resp.json();
-        if (data.personlista && data.personlista.person && data.personlista.person.length > 0) {
+        if (data.personlista.person.length > 0) {
             const firstName = data.personlista.person[0].tilltalsnamn;
             const lastName = data.personlista.person[0].efternamn;
             const fullName = firstName + " " + lastName;
@@ -82,14 +82,12 @@ async function getAge() {
     const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=");
     if (resp.ok) {
         const data = await resp.json();
-        if(data.personlista && data.personlista.person && data.personlista.person.length > 0){
-            // const firstPerson = data.personlista.person[0];
-        
+        if(data.personlista.person.length > 0){
         const birthYear = data.personlista.person[0].fodd_ar;
         let currentDate = new Date();
         let currentYear = currentDate.getFullYear();
         const age = currentYear - birthYear;
-        return age + "år";
+        return age + " år";
         }
         else{
             return null;
