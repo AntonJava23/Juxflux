@@ -2,6 +2,7 @@ const app = {
     data() {
         return {
             missionCount: 0,
+            currentMissions: [],
             portrait: 0,
             fullName: 0,
             age: ""
@@ -12,12 +13,19 @@ const app = {
             try {
                 const missionCount = await getMissionCount("0598053101129");
                 this.missionCount = missionCount;
+
+                const currentMissions = await getCurrentMission("0598053101129");
+                this.currentMissions = currentMissions;
+
                 const portrait = await getPortraitById("0598053101129");
                 this.portrait = portrait;
+
                 const fullName = await getName();
                 this.fullName = fullName;
+
                 const age = await getAge();
                 this.age = age;
+
             } catch (error) {
                 console.error("Error fetching mission count:", error);
             }
@@ -40,14 +48,15 @@ async function getMissionCount(intressent_id) {
     throw Error("No mission count found for the given ID")
 }
 
-async function getCurrentMission() {
+async function getCurrentMission(intressent_id) {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     if (resp.ok) {
         const data = await resp.json();
-        const currentMission = data.personlista.person.personuppdrag.uppdrag
-        if (data.currentMission) {
-            return currentMission
-        }
+        const currentMissions = [];
+        data.personlista.person.personuppdrag.uppdrag.forEach(item => {
+            currentMissions.push(item.roll_kod)
+        });
+        return currentMissions;
     }
     throw Error("No missions found for given ID")
 }

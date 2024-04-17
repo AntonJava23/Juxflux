@@ -19,6 +19,14 @@
             Antal uppdrag: {{missionCount}}
         </p>
         <p>
+            Nuvarande uppdrag: 
+        </p>
+        <ul>
+            <li v-for="mission in currentMissions">
+                {{currentMissions}}
+            </li>
+        </ul>
+        <p>
             Bild: <img :src="portrait" alt="Bild på ledamot">
         </p>
         <p>
