@@ -19,8 +19,10 @@ const app = {
 
                 const portrait = await getPortraitById("0598053101129");
                 this.portrait = portrait;
+
                 const fullName = await getName("0598053101129");
                 this.fullName = fullName;
+                
                 const age = await getAge("0598053101129");
                 this.age = age;
 
