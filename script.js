@@ -4,7 +4,7 @@ const app = {
             missionCount: 0,
             currentMissions: [],
             portrait: 0,
-            fullName: 0,
+            fullName: "",
             age: ""
         }
     },
@@ -19,11 +19,9 @@ const app = {
 
                 const portrait = await getPortraitById("0598053101129");
                 this.portrait = portrait;
-
-                const fullName = await getName();
+                const fullName = await getName("0598053101129");
                 this.fullName = fullName;
-
-                const age = await getAge();
+                const age = await getAge("0598053101129");
                 this.age = age;
 
             } catch (error) {
@@ -74,33 +72,19 @@ async function getPortraitById(intressent_id) {
 }
 
 async function getName(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=`)
-    if (resp.ok) {
-        const data = await resp.json();
-        if (data.personlista.person.length > 0) {
-            const firstName = data.personlista.person[0].tilltalsnamn;
-            const lastName = data.personlista.person[0].efternamn;
-            const fullName = firstName + " " + lastName;
-            return fullName;
-        }
-        return null;
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`)
+    const data = await resp.json();
+    if (resp.ok && data.personlista && data.personlista.person) {
+        return `${data.personlista.person.tilltalsnamn} ${data.personlista.person.efternamn}`;
     }
 }
 
 async function getAge(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=`);
-    if (resp.ok) {
-        const data = await resp.json();
-        if(data.personlista.person.length > 0){
-        const birthYear = data.personlista.person[0].fodd_ar;
-        let currentDate = new Date();
-        let currentYear = currentDate.getFullYear();
-        const age = currentYear - birthYear;
-        return age + " år";
-        }
-        else{
-            return null;
-        }
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
+    const data = await resp.json();
+    if (resp.ok && data.personlista && data.personlista.person) {
+        let currentYear = new Date().getFullYear();
+        return `${currentYear -data.personlista.person.fodd_ar}`;
     }
     else{
         console.error("Error getting the current age", error);
