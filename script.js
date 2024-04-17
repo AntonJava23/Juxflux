@@ -64,8 +64,8 @@ async function getPortraitById(intressent_id) {
     throw Error("No portrait found for the given ID");
 }
 
-async function getName() {
-    const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=")
+async function getName(intressent_id) {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=`)
     if (resp.ok) {
         const data = await resp.json();
         if (data.personlista.person.length > 0) {
@@ -78,8 +78,8 @@ async function getName() {
     }
 }
 
-async function getAge() {
-    const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=");
+async function getAge(intressent_id) {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=`);
     if (resp.ok) {
         const data = await resp.json();
         if(data.personlista.person.length > 0){
