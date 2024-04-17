@@ -14,7 +14,7 @@ const app = {
                 const missionCount = await getMissionCount("0598053101129");
                 this.missionCount = missionCount;
 
-                const currentMissions = await getCurrentMission("0598053101129");
+                const currentMissions = await getCurrentMissions("0598053101129");
                 this.currentMissions = currentMissions;
 
                 const portrait = await getPortraitById("0598053101129");
@@ -22,7 +22,7 @@ const app = {
 
                 const fullName = await getName("0598053101129");
                 this.fullName = fullName;
-                
+
                 const age = await getAge("0598053101129");
                 this.age = age;
 
@@ -48,7 +48,7 @@ async function getMissionCount(intressent_id) {
     throw Error("No mission count found for the given ID")
 }
 
-async function getCurrentMission(intressent_id) {
+async function getCurrentMissions(intressent_id) {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     if (resp.ok) {
         const data = await resp.json();
