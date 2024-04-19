@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partikort</title>
+    <script defer src="https://unpkg.com/vue@3.4.21"
+        integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
+        crossorigin="anonymous"></script>
+    <script defer src="scriptDemi.js"></script>
+
+    <style>
+        #app {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .member-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            margin: 2em;
+            padding: 2em;
+            background-color:aquamarine;
+
+            div {
+                margin: 2em;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">        
+        <div class="member-card" v-for="person of persons">
+            <img :src="person.portrait" alt="portrait image">
+            <div>Name: {{person.name}}</div>
+            <div>Party: {{person.party}}</div>
+            <div>Born: {{person.year}}</div>
+        </div>
+    </div>
+</body>
+
+</html>
