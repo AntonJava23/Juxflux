@@ -86,9 +86,9 @@ async function getAge(intressent_id) {
     const data = await resp.json();
     if (resp.ok && data.personlista && data.personlista.person) {
         let currentYear = new Date().getFullYear();
-        return `${currentYear -data.personlista.person.fodd_ar}`;
+        return `${currentYear - data.personlista.person.fodd_ar}`;
     }
-    else{
+    else {
         console.error("Error getting the current age", error);
     }
 }
