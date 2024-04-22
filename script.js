@@ -1,7 +1,7 @@
 const app = {
     data() {
         return {
-            missionCount: 0,
+            // missionCount: 0,
             currentMissions: [],
             portrait: 0,
             fullName: "",
@@ -22,8 +22,8 @@ const app = {
                 const portrait = await getPortraitById("0222691314314");
                 this.portrait = portrait;
 
-                const intressentIDs = await getIds();
-                this.ids = intressentIDs;
+                const intressentIDs = await getIntressentIDs();
+                this.intressentIDs = intressentIDs;
                 const idCount = intressentIDs.length
                 this.idCount = idCount
 
@@ -70,7 +70,7 @@ async function getCurrentMissions(intressent_id) {
     throw Error("No missions found for given ID")
 }
 
-async function getIds() {
+async function getIntressentIDs() {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?utformat=json`)
     if (resp.ok) {
         const data = await resp.json();
@@ -118,7 +118,21 @@ async function getStatus(intressent_id) {
 }
 
 async function questionTwo() {
+    const choices = [];
+    const randomIDs = this.intressentIDs.sort(() => Math.random() - 0.5);
+    if (this.intressentIDs.length >= 4) {
+        for (let i = 0; i < 4; i++) {
+            choices.push(randomIDs[i]);
+        }
+    }
+    console.log("Chosen ids: ", choices)
 
+    choices.forEach(id => {
+            getPortraitById(id),
+            getName(id)
+
+        
+    });
 }
 
 Vue.createApp(app).mount("#app")
