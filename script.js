@@ -5,7 +5,9 @@ const app = {
             currentMissions: [],
             portrait: 0,
             fullName: "",
-            status: ""
+            status: "",
+            intressentIDs: [],
+            idCount: ""
         }
     },
     methods: {
@@ -20,11 +22,17 @@ const app = {
                 const portrait = await getPortraitById("0222691314314");
                 this.portrait = portrait;
 
+                const intressentIDs = await getIds();
+                this.ids = intressentIDs;
+                const idCount = intressentIDs.length
+                this.idCount = idCount
+
                 const fullName = await getName("0222691314314");
                 this.fullName = fullName;
 
                 const status = await getStatus("0222691314314");
                 this.status = status;
+
 
             } catch (error) {
                 console.error("Error fetching mission count:", error);
@@ -62,6 +70,21 @@ async function getCurrentMissions(intressent_id) {
     throw Error("No missions found for given ID")
 }
 
+async function getIds() {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?utformat=json`)
+    if (resp.ok) {
+        const data = await resp.json();
+        const intressentIDs = [];
+        data.personlista.person.forEach(item => {
+            intressentIDs.push(item.intressent_id)
+        });
+        return intressentIDs;
+    }
+    else {
+        throw Error("No ids found");
+    }
+}
+
 async function getPortraitById(intressent_id) {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     if (resp.ok) {
@@ -86,7 +109,7 @@ async function getStatus(intressent_id) {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     const data = await resp.json();
     if (resp.ok && data.personlista && data.personlista.person) {
-        
+
         return `${data.personlista.person.status}`;
     }
     else {
@@ -94,9 +117,8 @@ async function getStatus(intressent_id) {
     }
 }
 
-
 async function questionTwo() {
-    
+
 }
 
 Vue.createApp(app).mount("#app")

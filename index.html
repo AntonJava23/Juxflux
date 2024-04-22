@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div id="app">        
+    <div id="app">
 
         <p>
             Ledamöterns status: {{status}}
@@ -24,6 +24,15 @@
                 Uppdrag: {{mission}}
             </li>
         </ul>
+
+        <ul>
+            <li v-for="id in ids">
+                Ledamöt: {{id}}
+            </li>
+        </ul>
+        <p>
+            {{idCount}}
+        </p>
         <p>
             Bild: <br><img :src="portrait" alt="Bild på ledamot">
         </p>
@@ -32,14 +41,14 @@
         </p>
 
         <p>
-            <p>
+        <p>
             Fråga 3:
-            </p>
-            Vilket parti tillhör personen på bilden?<br>
-            <br><img :src="portrait" alt="Bild på ledamot"><br>
+        </p>
+        Vilket parti tillhör personen på bilden?<br>
+        <br><img :src="portrait" alt="Bild på ledamot"><br>
 
-            <button class="buttons-quest-3" id="vänster">Vänsterpartiet</button>
-            <button class="buttons-quest-3" id="höger">Sverigedemokraterna</button>
+        <button class="buttons-quest-3" id="vänster">Vänsterpartiet</button>
+        <button class="buttons-quest-3" id="höger">Sverigedemokraterna</button>
 
 
         </p>
