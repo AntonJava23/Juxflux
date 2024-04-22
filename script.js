@@ -5,26 +5,26 @@ const app = {
             currentMissions: [],
             portrait: 0,
             fullName: "",
-            age: ""
+            status: ""
         }
     },
     methods: {
         async fetchData() {
             try {
-                const missionCount = await getMissionCount("0598053101129");
-                this.missionCount = missionCount;
+                // const missionCount = await getMissionCount("0598053101129");
+                // this.missionCount = missionCount;
 
-                const currentMissions = await getCurrentMissions("0598053101129");
+                const currentMissions = await getCurrentMissions("0222691314314");
                 this.currentMissions = currentMissions;
 
-                const portrait = await getPortraitById("0598053101129");
+                const portrait = await getPortraitById("0222691314314");
                 this.portrait = portrait;
 
-                const fullName = await getName("0598053101129");
+                const fullName = await getName("0222691314314");
                 this.fullName = fullName;
 
-                const age = await getAge("0598053101129");
-                this.age = age;
+                const status = await getStatus("0222691314314");
+                this.status = status;
 
             } catch (error) {
                 console.error("Error fetching mission count:", error);
@@ -36,17 +36,18 @@ const app = {
     }
 }
 
-async function getMissionCount(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
-    if (resp.ok) {
-        const data = await resp.json();
-        const missionCount = data.personlista.person.personuppdrag.uppdrag.length;
-        if (missionCount) {
-            return missionCount;
-        }
-    }
-    throw Error("No mission count found for the given ID")
-}
+//INTE LÄNGRE RELEVANT 
+// async function getMissionCount(intressent_id) {
+//     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
+//     if (resp.ok) {
+//         const data = await resp.json();
+//         const missionCount = data.personlista.person.personuppdrag.uppdrag.length;
+//         if (missionCount) {
+//             return missionCount;
+//         }
+//     }
+//     throw Error("No mission count found for the given ID")
+// }
 
 async function getCurrentMissions(intressent_id) {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
@@ -81,15 +82,15 @@ async function getName(intressent_id) {
     }
 }
 
-async function getAge(intressent_id) {
+async function getStatus(intressent_id) {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     const data = await resp.json();
     if (resp.ok && data.personlista && data.personlista.person) {
-        let currentYear = new Date().getFullYear();
-        return `${currentYear - data.personlista.person.fodd_ar}`;
+        
+        return `${data.personlista.person.status}`;
     }
     else {
-        console.error("Error getting the current age", error);
+        console.error("Error getting the current status", error);
     }
 }
 

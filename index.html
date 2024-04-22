@@ -15,11 +15,9 @@
 
 <body>
     <div id="app">        
+
         <p>
-            Antal uppdrag: {{missionCount}}
-        </p>
-        <p>
-            Nuvarande uppdrag: 
+            Ledamöterns status: {{status}}
         </p>
         <ul>
             <li v-for="mission in currentMissions">
@@ -31,9 +29,6 @@
         </p>
         <p>
             Ledamöters namn: {{fullName}}
-        </p>
-        <p>
-            Ledamöterns ålder: {{age}}
         </p>
     </div>
 </body>
