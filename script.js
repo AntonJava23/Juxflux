@@ -93,4 +93,9 @@ async function getAge(intressent_id) {
     }
 }
 
+
+async function questionTwo() {
+    
+}
+
 Vue.createApp(app).mount("#app")
