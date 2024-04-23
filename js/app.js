@@ -1,3 +1,6 @@
+import SverigesRiksdag from "./services/SverigesRiksdag.js"
+import QuizQuestion from "./components/QuizQuestion.js"
+
 const app = {
     data() {
         return {
@@ -11,22 +14,22 @@ const app = {
     },
     methods: {
         async fetchData() {
-            try {             
-                const currentMissions = await getCurrentMissions("0222691314314");
+            try {
+                const currentMissions = await SverigesRiksdag.getCurrentMissions("0222691314314");
                 this.currentMissions = currentMissions;
 
-                const portrait = await getPortraitById("0222691314314");
+                const portrait = await SverigesRiksdag.getPortraitById("0222691314314");
                 this.portrait = portrait;
 
-                const intressentIDs = await getIntressentIDs();
+                const intressentIDs = await SverigesRiksdag.getIntressentIDs();
                 this.intressentIDs = intressentIDs;
                 const idCount = intressentIDs.length
                 this.idCount = idCount
 
-                const fullName = await getName("0222691314314");
+                const fullName = await SverigesRiksdag.getName("0222691314314");
                 this.fullName = fullName;
 
-                const status = await getStatus("0222691314314");
+                const status = await SverigesRiksdag.getStatus("0222691314314");
                 this.status = status;
 
 
@@ -37,78 +40,6 @@ const app = {
     },
     mounted() {
         this.fetchData();
-    }
-}
-
-async function getCurrentMissions(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
-    if (resp.ok) {
-        const data = await resp.json();
-        const currentMissions = [];
-        data.personlista.person.personuppdrag.uppdrag.forEach(item => {
-            currentMissions.push(item.roll_kod)
-        });
-        return currentMissions;
-    }
-    throw Error("No missions found for given ID")
-}
-
-async function getIntressentIDs() {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?utformat=json`)
-    if (resp.ok) {
-        const data = await resp.json();
-        const intressentIDs = [];
-        data.personlista.person.forEach(item => {
-            intressentIDs.push(item.intressent_id)
-        });
-        return intressentIDs;
-    }
-    else {
-        throw Error("No ids found");
-    }
-}
-
-async function isMinister(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`)
-    if (resp.ok) {
-        const data = await resp.json()
-        const minister = data.personlista.person.status
-        if (minister.contains("minister")) {
-            return true
-        }
-
-    }
-}
-
-async function getPortraitById(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
-    if (resp.ok) {
-        const data = await resp.json();
-        const person = data.personlista.person
-        if (person) {
-            return person.bild_url_192;
-        }
-    }
-    throw Error("No portrait found for the given ID");
-}
-
-async function getName(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`)
-    const data = await resp.json();
-    if (resp.ok && data.personlista && data.personlista.person) {
-        return `${data.personlista.person.tilltalsnamn} ${data.personlista.person.efternamn}`;
-    }
-}
-
-async function getStatus(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
-    const data = await resp.json();
-    if (resp.ok && data.personlista && data.personlista.person) {
-
-        return `${data.personlista.person.status}`;
-    }
-    else {
-        console.error("Error getting the current status", error);
     }
 }
 
@@ -126,12 +57,14 @@ async function questionTwo() {
 
     choices.forEach(id => {
         let portrait = getPortraitById(id);
-            let name = getName(id)
+        let name = getName(id)
     });
+
+
 }
 
 const vueApp = Vue.createApp(app)
 
-
+vueApp.component('quiz-question', QuizQuestion)
 
 vueApp.mount("#app")
