@@ -1,23 +1,39 @@
 const app = {
     data() {
         return {
-            missionCount: 0,
+            // missionCount: 0,
+            currentMissions: [],
             portrait: 0,
-            fullName: 0,
-            age: ""
+            fullName: "",
+            status: "",
+            intressentIDs: [],
+            idCount: ""
         }
     },
     methods: {
         async fetchData() {
             try {
-                const missionCount = await getMissionCount("0598053101129");
-                this.missionCount = missionCount;
-                const portrait = await getPortraitById("0598053101129");
+                // const missionCount = await getMissionCount("0598053101129");
+                // this.missionCount = missionCount;
+
+                const currentMissions = await getCurrentMissions("0222691314314");
+                this.currentMissions = currentMissions;
+
+                const portrait = await getPortraitById("0222691314314");
                 this.portrait = portrait;
-                const fullName = await getName();
+
+                const intressentIDs = await getIntressentIDs();
+                this.intressentIDs = intressentIDs;
+                const idCount = intressentIDs.length
+                this.idCount = idCount
+
+                const fullName = await getName("0222691314314");
                 this.fullName = fullName;
-                const age = await getAge();
-                this.age = age;
+
+                const status = await getStatus("0222691314314");
+                this.status = status;
+
+
             } catch (error) {
                 console.error("Error fetching mission count:", error);
             }
@@ -28,28 +44,57 @@ const app = {
     }
 }
 
-async function getMissionCount(intressent_id) {
-    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
-    if (resp.ok) {
-        const data = await resp.json();
-        const missionCount = data.personlista.person.personuppdrag.uppdrag.length;
-        if (missionCount) {
-            return missionCount;
-        }
-    }
-    throw Error("No mission count found for the given ID")
-}
+//INTE LÄNGRE RELEVANT 
+// async function getMissionCount(intressent_id) {
+//     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
+//     if (resp.ok) {
+//         const data = await resp.json();
+//         const missionCount = data.personlista.person.personuppdrag.uppdrag.length;
+//         if (missionCount) {
+//             return missionCount;
+//         }
+//     }
+//     throw Error("No mission count found for the given ID")
+// }
 
-async function getCurrentMission() {
+async function getCurrentMissions(intressent_id) {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     if (resp.ok) {
         const data = await resp.json();
-        const currentMission = data.personlista.person.personuppdrag.uppdrag
-        if (data.currentMission) {
-            return currentMission
-        }
+        const currentMissions = [];
+        data.personlista.person.personuppdrag.uppdrag.forEach(item => {
+            currentMissions.push(item.roll_kod)
+        });
+        return currentMissions;
     }
     throw Error("No missions found for given ID")
+}
+
+async function getIntressentIDs() {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?utformat=json`)
+    if (resp.ok) {
+        const data = await resp.json();
+        const intressentIDs = [];
+        data.personlista.person.forEach(item => {
+            intressentIDs.push(item.intressent_id)
+        });
+        return intressentIDs;
+    }
+    else {
+        throw Error("No ids found");
+    }
+}
+
+async function isMinister(intressent_id) {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`)
+    if (resp.ok) {
+        const data = await resp.json()
+        const minister = data.personlista.person.status
+        if (minister.contains("minister")) {
+            return true
+        }
+
+    }
 }
 
 async function getPortraitById(intressent_id) {
@@ -64,39 +109,52 @@ async function getPortraitById(intressent_id) {
     throw Error("No portrait found for the given ID");
 }
 
-async function getName() {
-    const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=")
-    if (resp.ok) {
-        const data = await resp.json();
-        if (data.personlista && data.personlista.person && data.personlista.person.length > 0) {
-            const firstName = data.personlista.person[0].tilltalsnamn;
-            const lastName = data.personlista.person[0].efternamn;
-            const fullName = firstName + " " + lastName;
-            return fullName;
-        }
-        return null;
+async function getName(intressent_id) {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`)
+    const data = await resp.json();
+    if (resp.ok && data.personlista && data.personlista.person) {
+        return `${data.personlista.person.tilltalsnamn} ${data.personlista.person.efternamn}`;
     }
 }
 
-async function getAge() {
-    const resp = await fetch("https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=kvinna&parti=S&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=");
-    if (resp.ok) {
-        const data = await resp.json();
-        if(data.personlista && data.personlista.person && data.personlista.person.length > 0){
-            // const firstPerson = data.personlista.person[0];
-        
-        const birthYear = data.personlista.person[0].fodd_ar;
-        let currentDate = new Date();
-        let currentYear = currentDate.getFullYear();
-        const age = currentYear - birthYear;
-        return age + "år";
-        }
-        else{
-            return null;
+async function getStatus(intressent_id) {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
+    const data = await resp.json();
+    if (resp.ok && data.personlista && data.personlista.person) {
+
+        return `${data.personlista.person.status}`;
+    }
+    else {
+        console.error("Error getting the current status", error);
+    }
+}
+
+async function questionTwo() {
+    const choices = [];
+    const portrait = "";
+    const name = "";
+    const randomIDs = this.intressentIDs.sort(() => Math.random() - 0.5);
+    if (this.intressentIDs.length >= 4) {
+        for (let i = 0; i < 4; i++) {
+            choices.push(randomIDs[i]);
         }
     }
-    else{
-        console.error("Error getting the current age", error);
+    console.log("Chosen ids: ", choices)
+
+    choices.forEach(id => {
+        let portrait = getPortraitById(id);
+            let name = getName(id)
+    });
+
+}
+
+//kod för fråga 3:
+async function questionThree(){
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=&parti=${party}&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=`)
+    const data = await resp.json();
+    if(resp.ok)
+    {
+        getNamesAndParties
     }
 }
 
