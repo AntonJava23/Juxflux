@@ -85,6 +85,18 @@ async function getIntressentIDs() {
     }
 }
 
+async function isMinister(intressent_id) {
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`)
+    if (resp.ok) {
+        const data = await resp.json()
+        const minister = data.personlista.person.status
+        if (minister.contains("minister")) {
+            return true
+        }
+
+    }
+}
+
 async function getPortraitById(intressent_id) {
     const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=${intressent_id}&utformat=json`);
     if (resp.ok) {
@@ -119,6 +131,8 @@ async function getStatus(intressent_id) {
 
 async function questionTwo() {
     const choices = [];
+    const portrait = "";
+    const name = "";
     const randomIDs = this.intressentIDs.sort(() => Math.random() - 0.5);
     if (this.intressentIDs.length >= 4) {
         for (let i = 0; i < 4; i++) {
@@ -128,10 +142,8 @@ async function questionTwo() {
     console.log("Chosen ids: ", choices)
 
     choices.forEach(id => {
-            getPortraitById(id),
-            getName(id)
-
-        
+        let portrait = getPortraitById(id);
+            let name = getName(id)
     });
 }
 
