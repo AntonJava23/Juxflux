@@ -145,6 +145,17 @@ async function questionTwo() {
         let portrait = getPortraitById(id);
             let name = getName(id)
     });
+
+}
+
+//kod för fråga 3:
+async function questionThree(){
+    const resp = await fetch(`https://data.riksdagen.se/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=&parti=${party}&valkrets=&rdlstatus=&org=&utformat=json&sort=sorteringsnamn&sortorder=asc&termlista=`)
+    const data = await resp.json();
+    if(resp.ok)
+    {
+        getNamesAndParties
+    }
 }
 
 Vue.createApp(app).mount("#app")
