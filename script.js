@@ -7,7 +7,8 @@ const app = {
             fullName: "",
             status: "",
             intressentIDs: [],
-            idCount: ""
+            idCount: "",
+            party: ""
         }
     },
     methods: {
@@ -24,6 +25,7 @@ const app = {
 
                 const intressentIDs = await getIntressentIDs();
                 this.intressentIDs = intressentIDs;
+                
                 const idCount = intressentIDs.length
                 this.idCount = idCount
 
@@ -154,7 +156,8 @@ async function questionThree(){
     const data = await resp.json();
     if(resp.ok)
     {
-        getNamesAndParties
+        const answerQ3 = getNamesAndParties(this.party)
+
     }
 }
 

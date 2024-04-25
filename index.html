@@ -48,8 +48,8 @@
         Vilket parti tillhör personen på bilden?<br>
         <br><img :src="portrait" alt="Bild på ledamot"><br>
 
-        <button class="buttons-question-3" id="vänster">Vänsterpartiet</button>
-        <button class="buttons-question-3" id="höger">Sverigedemokraterna</button>
+        <button class="buttons-question-3" id="vänster" @click="result">Vänsterpartiet</button>
+        <button class="buttons-question-3" id="höger" @click="result">Sverigedemokraterna</button>
         </p>
     </div>
 </body>
