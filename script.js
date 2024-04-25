@@ -22,7 +22,9 @@ const app = {
 
                 const intressentIDs = await getIntressentIDs();
                 this.intressentIDs = intressentIDs;
+
                 this.idCount = intressentIDs.length;
+
 
                 const fullName = await getName("");
                 this.fullName = fullName;
@@ -132,6 +134,5 @@ async function questionTwo() {
     });
 
 }
-
 
 Vue.createApp(app).mount("#app")
