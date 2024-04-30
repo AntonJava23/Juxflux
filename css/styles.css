@@ -1,0 +1,53 @@
+.quiz-portrait ul {
+    padding: 0;
+    /* Remove default padding from <ul> */
+    margin: 0;
+    /* Remove default margin from <ul> */
+    list-style-type: none;
+    /* Remove list item dots */
+}
+
+.quiz-portrait li {
+    margin-right: 5px;
+    /* Add spacing between items */
+}
+
+.quiz-portrait img {
+    height: 150px;
+    /* Set image height */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+/* Media queries to handle different screen sizes */
+@media (min-width: 768px) {
+    .quiz-portrait ul {
+        display: flex;
+        /* Horizontal layout for larger screens */
+        justify-content: center;
+        /* Align items to the start */
+        align-items: center;
+        min-height: 200px;
+        /* Ensure content isn't too high up */
+        padding-top: 50px;
+        /* Add some padding at the top */
+    }
+
+    .quiz-portrait ul {
+        display: flex;
+        justify-content: center;
+        /* Center items horizontally */
+        align-items: center;
+        /* Center items vertically */
+    }
+}
+
+@media (max-width: 767px) {
+    .quiz-portrait ul {
+        display: grid;
+        /* Use grid layout for smaller screens */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 grid */
+        place-items: center;
+    }
+}
