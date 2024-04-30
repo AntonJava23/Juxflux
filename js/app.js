@@ -1,5 +1,3 @@
-import SverigesRiksdag from "./services/SverigesRiksdag.js"
-import QuizQuestion from "./components/QuizQuestion.js"
 import QuizPortrait from "./components/QuizPortrait.js";
 
 const app = {

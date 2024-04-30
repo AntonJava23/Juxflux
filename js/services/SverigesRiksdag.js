@@ -13,6 +13,12 @@ export default {
             data.personlista.person.forEach(item => {
                 if (item?.bild_url_192 === "https://data.riksdagen.se/filarkiv/bilder/ledamot/1c96b775-a474-49d4-a829-e841280de062_192.jpg") {
                     return
+                } else if (item?.bild_url_192 === "https://data.riksdagen.se/filarkiv/bilder/ledamot/db385c2c-efba-4ab2-a77b-176efc45d8b3_192.jpg") {
+                    return
+                } else if (item?.bild_url_192 === "https://data.riksdagen.se/filarkiv/bilder/ledamot/137faa33-ad4d-48ca-93c3-a4674577c408_192.jpg") {
+                    return
+                } else if (item?.bild_url_192 === "https://data.riksdagen.se/filarkiv/bilder/ledamot/9ebed08f-e572-4bd5-8d94-e46a41f6724d_192.jpg") {
+                    return
                 }
 
                 this.commissioners.push({
@@ -67,7 +73,7 @@ export default {
         return false; // If no matching commissioner or no status, return false
     },
 
-    async getPortraitById(commissioner) {       
+    async getPortraitById(commissioner) {
         // If found, return the portrait URL
         if (commissioner && commissioner.image) {
             return commissioner.image;
@@ -88,7 +94,7 @@ export default {
             } else {
                 leda.push(comm);
             }
-        }        
+        }
 
         // Get random indices from each category
         const leda_idx = this.getRandomIndices(leda.length, 3)
@@ -100,20 +106,40 @@ export default {
         const portraits = []
 
         for (const idx of leda_idx) {
-            const portrait = await this.getPortraitById(leda[idx])
+            const commissioner = leda[idx]
+            const portrait = await this.getPortraitById(commissioner)
+            const name = commissioner.firstName + " " + commissioner.lastName
+            const party = commissioner.party
+            const status = commissioner.status
             if (portrait) {
-                portraits.push(portrait)
+                portraits.push({
+                    url: portrait,
+                    minister: false,
+                    name,
+                    party,
+                    status,
+                })
             }
         }
 
         for (const idx of mini_idx) {
-            const portrait = await this.getPortraitById(mini[idx]);
+            const minister = mini[idx]
+            const portrait = await this.getPortraitById(minister);
+            const name = minister.firstName + " " + minister.lastName
+            const party = minister.party
+            const status = minister.status            
             if (portrait) {
-                portraits.push(portrait);
+                portraits.push({
+                    url: portrait,
+                    minister: true,
+                    name,
+                    party,
+                    status,
+                });
             }
         }
-        return portraits
 
+        return portraits
     },
 
     async getName(intressent_id) {

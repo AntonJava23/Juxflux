@@ -8,15 +8,40 @@
 }
 
 .quiz-portrait li {
-    margin-right: 5px;
+    margin-right: 20px;
     /* Add spacing between items */
 }
 
+.quiz-portrait h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-portrait h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .quiz-portrait img {
-    height: 150px;
+    height: 200px;
     /* Set image height */
     width: auto;
     /* Maintain aspect ratio */
+    border: 2px solid black;
+    /* Transparent border to maintain space */
+    transition: border 0.3s ease;
+    /* Smooth transition for hover effect */
+
+}
+
+/* Add outline or border on hover */
+.quiz-portrait img:hover {
+    border: 2px solid blue;
+    /* Example: Blue border on hover */
+    outline: none;
+    /* No additional outline */
 }
 
 /* Media queries to handle different screen sizes */
@@ -27,9 +52,9 @@
         justify-content: center;
         /* Align items to the start */
         align-items: center;
-        min-height: 200px;
+        min-height: 50px;
         /* Ensure content isn't too high up */
-        padding-top: 50px;
+        padding-top: 150px;
         /* Add some padding at the top */
     }
 
