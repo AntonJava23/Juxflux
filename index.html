@@ -16,7 +16,7 @@
 <body>
     <div id="app">
 
-        <p>
+        <!-- <p>
             Ledamöterns status: {{status}}
         </p>
         <ul>
@@ -38,7 +38,7 @@
         </p>
         <p>
             Ledamöters namn: {{fullName}}
-        </p>
+        </p>  -->
 
         <p>
 
@@ -50,8 +50,10 @@
 
         <button class="buttons-question-3" id="vänster" @click="checkAnswer('v')">Vänsterpartiet</button>
         <button class="buttons-question-3" id="höger" @click="checkAnswer('sd')">Sverigedemokraterna</button>
-        
 
+        <div id="correctAnswer">
+            {{correctAnswer}}
+        </div>
         </p>
     </div>
 </body>

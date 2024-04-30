@@ -5,6 +5,7 @@ const app = {
             fullName: "",
             party: "",
             memberDataLoaded: false,
+            correctAnswer: ""
         };
     },
     methods: {
@@ -48,9 +49,9 @@ const app = {
             this.memberDataLoaded = true;
         },
         /**
-         * Here we check the answere.
+         * Here we check the answer.
          * @param {*} selectedParty 
-         * @returns if the user choose right or wrong answere.
+         * @returns if the user choose right or wrong answer.
          */
         checkAnswer(selectedParty) {
             if (!this.memberDataLoaded) {
@@ -58,7 +59,7 @@ const app = {
                 return;
             }
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
-            alert(correct ? `Rätt! ${this.fullName} tillhör ${this.party}.` : `Fel! ${this.fullName} tillhör ${this.party}.`);
+            this.correctAnswer = correct ? `Rätt! ${this.fullName} tillhör ${this.party}.` : `Fel! ${this.fullName} tillhör ${this.party}.`;
         }
     },
 
