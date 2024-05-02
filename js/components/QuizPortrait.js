@@ -77,12 +77,12 @@ export default {
                 </li>
             </ul>
 
-                <div v-show="correctAnswer">
-                    <h2>Korrekt!</h2>
-                </div>
-                <div v-show="wrongAnswer">
-                   <h2>Du svara fel</h2>
-                </div>
+            <div v-show="correctAnswer">
+                <h2>Korrekt!</h2>
+            </div>
+            <div v-show="wrongAnswer">
+                <h2>Du svara fel</h2>
+            </div>
             
         </div>`
 }
