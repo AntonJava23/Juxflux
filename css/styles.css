@@ -63,14 +63,6 @@
         padding-top: 150px;
         /* Add some padding at the top */
     }
-
-    .quiz-portrait ul {
-        display: flex;
-        justify-content: center;
-        /* Center items horizontally */
-        align-items: center;
-        /* Center items vertically */
-    }
 }
 
 @media (max-width: 767px) {
