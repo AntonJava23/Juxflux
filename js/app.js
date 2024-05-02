@@ -21,8 +21,5 @@ const app = {
 }
 
 const vueApp = Vue.createApp(app)
-
-
 vueApp.component('quiz-portrait', QuizPortrait)
-
 vueApp.mount("#app")

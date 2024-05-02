@@ -127,7 +127,7 @@ export default {
             const portrait = await this.getPortraitById(minister);
             const name = minister.firstName + " " + minister.lastName
             const party = minister.party
-            const status = minister.status            
+            const status = minister.status
             if (portrait) {
                 portraits.push({
                     url: portrait,
