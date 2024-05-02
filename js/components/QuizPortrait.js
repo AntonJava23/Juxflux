@@ -72,16 +72,18 @@ export default {
             <h1>Vem är minister?</h1>
             <ul>
                 <li v-for="port of portraits" :key="port">
-                    <img :src="port.url" :data-minister="port.minister" :alt="Bild på ledamot eller minister" @click="handleClick"/>
+                    <img :src="port.url" :data-minister="port.minister" :alt=Bild på ledamot eller minister @click="handleClick"/>
                     <p v-show="showPortraitName"> {{ port.name }} <br> {{ port.party }} <br> {{ port.status }} </p>
                 </li>
             </ul>
 
             <div v-show="correctAnswer">
                 <h2>Korrekt!</h2>
+                <a href="index3.html">Nästa fråga</a>
             </div>
             <div v-show="wrongAnswer">
                 <h2>Du svara fel</h2>
+                <a href="index3.html">Nästa fråga</a>
             </div>
             
         </div>`

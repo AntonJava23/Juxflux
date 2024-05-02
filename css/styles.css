@@ -24,6 +24,12 @@
     justify-content: center;
 }
 
+.quiz-portrait a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .quiz-portrait img {
     height: 200px;
     /* Set image height */
