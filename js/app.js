@@ -1,4 +1,4 @@
-import QuizPortrait from "./components/QuizPortrait.js";
+import QuestionTwo from "./components/QuestionTwo.js";
 
 const app = {
     data() {
@@ -21,5 +21,5 @@ const app = {
 }
 
 const vueApp = Vue.createApp(app)
-vueApp.component('quiz-portrait', QuizPortrait)
+vueApp.component('question-two', QuestionTwo)
 vueApp.mount("#app")
