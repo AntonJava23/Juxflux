@@ -1,18 +1,28 @@
-const app = {
+export default {
+    name: "QuestionThree",
+    props: {
+        portrait: Object
+    },
     data() {
         return {
             portrait: null,
             fullName: "",
             party: "",
             memberDataLoaded: false,
-        };
+            correctAnswer: ""
+        }
     },
+
+    mounted() {
+        this.fetchData();
+    },
+
     methods: {
         /**
-        *This 'fetchData()' together with 'fetchMembers()' and 'filterMembersByParty1 collects the 
-        * data from the API and filter them out to only include members of the 'V' party or 'SD' party
-        * and puts it in a list.
-        */
+         *This 'fetchData()' together with 'fetchMembers()' and 'filterMembersByParty1 collects the 
+         * data from the API and filter them out to only include members of the 'V' party or 'SD' party
+         * and puts it in a list.
+         */
         async fetchData() {
             try {
                 const members = await this.fetchMembers();
@@ -35,7 +45,7 @@ const app = {
         /**
          * This gives us a random member from the list we created in the methods above.
          * @param {*} members is the list of members within the 'V' or 'SD' party.
-         */
+        */
         selectRandomMember(members) {
             if (members.length === 0) {
                 throw new Error('No members found for the given parties');
@@ -48,23 +58,34 @@ const app = {
             this.memberDataLoaded = true;
         },
         /**
-         * Here we check the answere.
+         * Here we check the answer.
          * @param {*} selectedParty 
-         * @returns if the user choose right or wrong answere.
-         */
+         * @returns if the user choose right or wrong answer.
+        */
         checkAnswer(selectedParty) {
             if (!this.memberDataLoaded) {
                 alert('No member data loaded');
                 return;
             }
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
-            alert(correct ? `Rätt! ${this.fullName} tillhör ${this.party}.` : `Fel! ${this.fullName} tillhör ${this.party}.`);
+            this.correctAnswer = correct ? `Rätt! ${this.fullName} tillhör ${this.party}.` : `Fel! ${this.fullName} tillhör ${this.party}.`;
         }
     },
+    template: ` 
+    <div class="Questionthree">
+    <p>
+        Fråga 3:
+    </p>
+    Vilket parti tillhör personen på bilden?<br>
+    <br><img :src="portrait" alt="Bild på ledamot"><br>
 
-    mounted() {
-        this.fetchData();
-    }
+    <button class="buttons-question-3" id="vänster" @click="checkAnswer('v')">Vänsterpartiet</button>
+    <button class="buttons-question-3" id="höger" @click="checkAnswer('sd')">Sverigedemokraterna</button>
+
+    <div id="correctAnswer">
+        {{correctAnswer}}
+    </div>
+    </p>
+    </div>`
+
 }
-
-Vue.createApp(app).mount("#app");
