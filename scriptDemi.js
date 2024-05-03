@@ -1,3 +1,9 @@
+/**
+ * Slumpa fram fyra ministrar och partiledare
+ Blanda namn och bild
+Användaren ska knyta rätt namn till rätt bild genom att klicka på bild och sedan namn.
+ */
+
 async function getPersonList() {
     const resp = await fetch("https://data.riksdagen.se/personlista/?utformat=json&sort=parti")
     if (resp.ok) {
@@ -22,17 +28,6 @@ function getNamesAndParties(persons) {
 }
 
 
-// getPersonList()
-//     .then(personList => {
-//         const namesAndParties = getNamesAndParties(personList)
-
-//         for (let person of namesAndParties) {
-//             console.log(`Namn: ${person.name} \nParti: ${person.party}`)
-//         }
-//     })
-//     .catch(error => console.log(error))
-
-
 Vue.createApp({
     data() {
         return {
@@ -45,7 +40,8 @@ Vue.createApp({
                 this.persons = getNamesAndParties(personList)
             })
             .catch(error => {
-                console.log(error)})
+                console.log(error)
+            })
     }
 })
     .mount('#app')
