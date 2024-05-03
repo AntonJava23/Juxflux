@@ -19,6 +19,8 @@ export default {
                     return
                 } else if (item?.bild_url_192 === "https://data.riksdagen.se/filarkiv/bilder/ledamot/9ebed08f-e572-4bd5-8d94-e46a41f6724d_192.jpg") {
                     return
+                } else if (item?.bild_url_192 === "https://data.riksdagen.se/filarkiv/bilder/ledamot/820d6a20-1170-4915-bdff-e6175011bf0b_192.jpg") {
+                    return
                 }
 
                 this.commissioners.push({
@@ -68,6 +70,10 @@ export default {
 
     async isMinister(commissioner) {
         if (commissioner && commissioner.status) {
+            // Return false if it's a former minister
+            if (commissioner.status.includes("Tidigare")) {
+                return false
+            }
             return commissioner.status.includes("minister")
         }
         return false; // If no matching commissioner or no status, return false

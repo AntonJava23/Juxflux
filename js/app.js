@@ -1,23 +1,8 @@
 import QuestionTwo from "./components/QuestionTwo.js";
 
-const app = {
-    data() {
-        return {
-            currentMissions: [],
-            portrait: "",
-            fullName: "",
-            status: "",
-            intressentIDs: [],
-            idCount: "",
-            isMini: ""
-        }
-    },
-    methods: {
-
-    },
-    mounted() {
-
-    }
+const app = {  
+    
+    
 }
 
 const vueApp = Vue.createApp(app)
