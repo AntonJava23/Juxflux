@@ -15,8 +15,9 @@ export default {
             namesAndParties.push({
                 name: `${person.tilltalsnamn} ${person.efternamn}`,
                 party: person.parti,
-                portrait: person.bild_url_80,
-                year: person.fodd_ar
+                portrait: person.bild_url_192,
+                year: person.fodd_ar,
+                id: person.intressent_id
             })
         }
         return namesAndParties

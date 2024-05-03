@@ -1,0 +1,31 @@
+.member-portrait {
+    border: 2px solid black;
+
+}
+
+.member-portrait:hover {
+    border: 2px solid red;
+}
+
+.member-portraits {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.member-names {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.member-name {
+    border: 2px solid black;
+}
+
+.member-name:hover {
+    border: 2px solid red;
+}
