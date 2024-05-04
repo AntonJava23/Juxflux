@@ -9,24 +9,45 @@ export default {
             fullName: "",
             party: "",
             memberDataLoaded: false,
-            correctAnswer: ""
+            correctAnswer: "",
+            whichParties: [],
+            fullPartyNames: {
+                'V': 'Vänsterpartiet',
+                'SD': 'Sverigedemokraterna',
+                'MP': 'Miljöpartiet',
+                'KD': 'Kristdemokraterna'
+            }
         }
     },
 
     mounted() {
+        this.randomParties();
         this.fetchData();
     },
 
     methods: {
         /**
-         *This 'fetchData()' together with 'fetchMembers()' and 'filterMembersByParty1 collects the 
+         * This 'randomParties()' method desides if the question will be about V and SD och MP and KD. 
+         * Before collecting data.
+         */
+        randomParties() {
+            const randNum = Math.floor(Math.random() * 2); // Ger 0 eller 1
+            if (randNum === 0) {
+                this.whichParties = ['V', 'SD'];
+            } else {
+                this.whichParties = ['MP', 'KD'];
+            }
+        },
+
+        /**
+         *This 'fetchData()' together with 'fetchMembers()' and 'filterMembersByParty' collects the 
          * data from the API and filter them out to only include members of the 'V' party or 'SD' party
          * and puts it in a list.
          */
         async fetchData() {
             try {
                 const members = await this.fetchMembers();
-                const filteredMembers = this.filterMembersByParty(members, ['V', 'SD']);
+                const filteredMembers = this.filterMembersByParty(members, this.whichParties);
                 this.selectRandomMember(filteredMembers);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -60,7 +81,8 @@ export default {
         /**
          * Here we check the answer.
          * @param {*} selectedParty 
-         * @returns if the user choose right or wrong answer.
+         * @returns if no member data was loaded.
+         * Sends the answer to the user if its correct or wrong. 
         */
         checkAnswer(selectedParty) {
             if (!this.memberDataLoaded) {
@@ -68,7 +90,8 @@ export default {
                 return;
             }
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
-            this.correctAnswer = correct ? `Rätt! ${this.fullName} tillhör ${this.party}.` : `Fel! ${this.fullName} tillhör ${this.party}.`;
+            const fullPartyName = this.fullPartyNames[selectedParty.toUpperCase()];
+            this.correctAnswer = correct ? `Rätt! ${this.fullName} tillhör ${fullPartyName}.` : `Fel! ${this.fullName} tillhör inte ${fullPartyName}.`;
         }
     },
     template: ` 
@@ -79,13 +102,14 @@ export default {
     Vilket parti tillhör personen på bilden?<br>
     <br><img :src="portrait" alt="Bild på ledamot"><br>
 
-    <button class="buttons-question-3" id="vänster" @click="checkAnswer('v')">Vänsterpartiet</button>
-    <button class="buttons-question-3" id="höger" @click="checkAnswer('sd')">Sverigedemokraterna</button>
+    <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)">
+            {{ fullPartyNames[party] }}</button>
 
     <div id="correctAnswer">
-        {{correctAnswer}}
-    </div>
-    </p>
-    </div>`
+        {{correctAnswer}}<br>
 
+        <a href="index4.html">Nästa fråga</a>
+
+    </div>
+    </div>`
 }
