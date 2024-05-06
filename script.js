@@ -5,11 +5,11 @@ const app = {
 
     },
     methods: {
-       
+
     },
 
     mounted() {
-        
+
     }
 }
 

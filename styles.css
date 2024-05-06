@@ -1,4 +1,9 @@
 body {
-    background-color: #1C5170;
+    background-color:rgb(190, 223, 246);
 }
 
+.party-logo {
+    width: 30px;
+    height: auto;
+    margin-right: 5px; 
+}

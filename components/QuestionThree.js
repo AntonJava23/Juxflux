@@ -16,7 +16,11 @@ export default {
                 'SD': 'Sverigedemokraterna',
                 'MP': 'Miljöpartiet',
                 'KD': 'Kristdemokraterna'
-            }
+            },
+            kdLogo: "images/kd/kd_image.png",
+            mpLogo: "images/mp/mp_image.png",
+            sdLogo: "images/sd/sd_image.png",
+            vLogo: "images/v/v_image.png"
         }
     },
 
@@ -78,6 +82,20 @@ export default {
             this.party = member.parti;
             this.memberDataLoaded = true;
         },
+
+        getPartyLogo(party){
+            switch(party) {
+                case 'V':
+                    return this.vLogo;
+                case 'SD':
+                    return this.sdLogo;
+                case 'MP':
+                    return this.mpLogo;
+                case 'KD':
+                    return this.kdLogo;
+            }
+        },
+
         /**
          * Here we check the answer.
          * @param {*} selectedParty 
@@ -103,14 +121,9 @@ export default {
     <br><img :src="portrait" alt="Bild på ledamot"><br>
 
     <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)">
-            {{ fullPartyNames[party] }}</button>
-
-    <div>
-    <img src="../images/KDlogga.png">
-    <img src="../images/MPlogga.png">
-    <img src="../images/SDlogga.png">
-    <img src="../images/Vlogga.png">
-    </div>
+        <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="pary-logo">
+            {{ fullPartyNames[party] }}
+    </button>
 
     <div id="correctAnswer">
         {{correctAnswer}}<br>
