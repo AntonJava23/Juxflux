@@ -105,6 +105,13 @@ export default {
     <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)">
             {{ fullPartyNames[party] }}</button>
 
+    <div>
+    <img src="../images/KDlogga.png">
+    <img src="../images/MPlogga.png">
+    <img src="../images/SDlogga.png">
+    <img src="../images/Vlogga.png">
+    </div>
+
     <div id="correctAnswer">
         {{correctAnswer}}<br>
 
