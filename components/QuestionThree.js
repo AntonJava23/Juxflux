@@ -11,16 +11,26 @@ export default {
             memberDataLoaded: false,
             correctAnswer: "",
             whichParties: [],
-            fullPartyNames: {
+            fullPartyNames: { //All the alternatives for parties.
                 'V': 'Vänsterpartiet',
                 'SD': 'Sverigedemokraterna',
                 'MP': 'Miljöpartiet',
                 'KD': 'Kristdemokraterna'
             },
+            //All the logos for the parties.
             kdLogo: "images/kd/kd_image.png",
             mpLogo: "images/mp/mp_image.png",
             sdLogo: "images/sd/sd_image.png",
-            vLogo: "images/v/v_image.png"
+            vLogo: "images/v/v_image.png",
+
+            partyColors: {
+                'SD': '#f2a001', // gul
+                'V': '#ae6e3d',  // brun
+                'KD': '#976dd0', // lila
+                'MP': '#05a6ff', // blå
+                // Lägg till fler partier och deras färger här
+            },
+
         }
     },
 
@@ -83,6 +93,11 @@ export default {
             this.memberDataLoaded = true;
         },
 
+        /**
+         * This method ads the logos of the relevant parties.
+         * @param {*} party 
+         * @returns 
+         */
         getPartyLogo(party){
             switch(party) {
                 case 'V':
@@ -114,22 +129,20 @@ export default {
     },
     template: ` 
     <div class="Questionthree">
-    <p>
-        Fråga 3:
-    </p>
     Vilket parti tillhör personen på bilden?<br>
     <br><img :src="portrait" alt="Bild på ledamot"><br>
 
-    <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)">
-        <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="pary-logo">
+    <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)" :style="{ backgroundColor: partyColors[party] }">
+        <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="party-logo">
             {{ fullPartyNames[party] }}
     </button>
 
     <div id="correctAnswer">
         {{correctAnswer}}<br>
 
+    </div>
+    <div>
         <a href="index4.html">Nästa fråga</a>
-
     </div>
     </div>`
 }
