@@ -17,20 +17,27 @@ export default {
                 'MP': 'Miljöpartiet',
                 'KD': 'Kristdemokraterna'
             },
+            // partyMembers: { //What it's called when you're a member of the party.
+            //     'V': 'Vänsterpartist',
+            //     'SD': 'Sverigedemokrat',
+            //     'MP': 'Miljöpartist',
+            //     'KD': 'Kristdemokrat'
+            // },
+
             //All the logos for the parties.
             kdLogo: "images/kd/kd_image.png",
             mpLogo: "images/mp/mp_image.png",
             sdLogo: "images/sd/sd_image.png",
             vLogo: "images/v/v_image.png",
 
-            partyColors: {
+            partyColors: { //All the colors decided for the parties.
                 'SD': '#f2a001', // gul
                 'V': '#ae6e3d',  // brun
                 'KD': '#976dd0', // lila
                 'MP': '#05a6ff', // blå
-                // Lägg till fler partier och deras färger här
             },
-
+            threeCrowns: "images/treKronor.png",
+            riksdagen: "images/riksdagen.png"
         }
     },
 
@@ -48,8 +55,10 @@ export default {
             const randNum = Math.floor(Math.random() * 2); // Ger 0 eller 1
             if (randNum === 0) {
                 this.whichParties = ['V', 'SD'];
+                // this.partyMembers = ['V', 'SD'];
             } else {
                 this.whichParties = ['MP', 'KD'];
+               // this.partyMembers = ['MP', 'KD'];
             }
         },
 
@@ -110,6 +119,17 @@ export default {
                     return this.kdLogo;
             }
         },
+        getThreeCrowns(){
+            return this.threeCrowns;
+        },
+
+        getRiksdagen(){
+            return this.riksdagen;
+        },
+
+        // getPartymembers() {
+        //     return this.partyMembers;
+        // },
 
         /**
          * Here we check the answer.
@@ -129,20 +149,31 @@ export default {
     },
     template: ` 
     <div class="Questionthree">
-    Vilket parti tillhör personen på bilden?<br>
-    <br><img :src="portrait" alt="Bild på ledamot"><br>
+        <div id="head">
+            <img :src="getThreeCrowns()" alt="Riksdagens logga tre kronor" id="threeCrowns">
+            Poäng: 2
+            <img :src="getRiksdagen()" alt="Bild på riksdagen" id="riksdagen">
+        </div>
 
-    <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)" :style="{ backgroundColor: partyColors[party] }">
-        <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="party-logo">
-            {{ fullPartyNames[party] }}
-    </button>
+        <div>
+            <div id="questionPart">
+            Vilket parti tillhör personen på bilden?
+            </div>
 
-    <div id="correctAnswer">
+            <img :src="portrait" alt="Bild på ledamot"><br>
+
+            <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)" :style="{ backgroundColor: partyColors[party] }">
+                <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="party-logo">
+                {{ fullPartyNames[party] }}
+            </button>
+        </div>
+
+        <div id="correctAnswer">
         {{correctAnswer}}<br>
+        </div>
 
-    </div>
-    <div>
-        <a href="index4.html">Nästa fråga</a>
-    </div>
+        <div>
+            <a href="index4.html">Nästa fråga</a>
+        </div>
     </div>`
 }
