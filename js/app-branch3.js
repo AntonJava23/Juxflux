@@ -1,16 +1,8 @@
 import QuestionThree from "./components/QuestionThree.js";
 
 const app = {
-    data() {
 
-    },
-    methods: {
 
-    },
-
-    mounted() {
-
-    }
 }
 
 const vueApp = Vue.createApp(app)

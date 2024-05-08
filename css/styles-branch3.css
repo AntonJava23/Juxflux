@@ -12,6 +12,7 @@ body::before {
     filter: opacity(10%);
     
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -21,6 +22,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
