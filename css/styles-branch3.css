@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:rgb(190, 223, 246);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+#threeCrowns, #riksdagen{
+    width: 55px;
+    height: auto;
+}
+
+#questionPart {
+    flex: 1;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.party-logo {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+.buttons-question-3 {
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    width:12rem;
+    transform:rotate(-1deg);
+    color: white;
+    padding: 10px;
+    border-style: none;
+}
+
