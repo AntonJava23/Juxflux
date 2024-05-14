@@ -17,12 +17,6 @@ export default {
                 'MP': 'Miljöpartiet',
                 'KD': 'Kristdemokraterna'
             },
-            // partyMembers: { //What it's called when you're a member of the party.
-            //     'V': 'Vänsterpartist',
-            //     'SD': 'Sverigedemokrat',
-            //     'MP': 'Miljöpartist',
-            //     'KD': 'Kristdemokrat'
-            // },
 
             //All the logos for the parties.
             kdLogo: "images/kd/kd_image.png",
@@ -127,10 +121,6 @@ export default {
             return this.riksdagen;
         },
 
-        // getPartymembers() {
-        //     return this.partyMembers;
-        // },
-
         /**
          * Here we check the answer.
          * @param {*} selectedParty 
@@ -144,7 +134,7 @@ export default {
             }
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
             const fullPartyName = this.fullPartyNames[selectedParty.toUpperCase()];
-            this.correctAnswer = correct ? `Rätt! ${this.fullName} tillhör ${fullPartyName}.` : `Fel! ${this.fullName} tillhör inte ${fullPartyName}.`;
+            this.correctAnswer = correct ? `Rätt! ${this.fullName} tillhör<br>${fullPartyName}.` : `Fel! ${this.fullName} tillhör inte<br>${fullPartyName}.`;
         }
     },
     template: ` 
@@ -157,7 +147,7 @@ export default {
 
         <div>
             <div id="questionPart">
-            Vilket parti tillhör personen på bilden?
+            Vilket parti tillhör <br>personen på bilden?
             </div>
 
             <img :src="portrait" alt="Bild på ledamot"><br>
@@ -168,12 +158,10 @@ export default {
             </button>
         </div>
 
-        <div id="correctAnswer">
-        {{correctAnswer}}<br>
-        </div>
+        <div id="correctAnswer" v-html="correctAnswer"></div>
 
         <div>
-            <a href="index-branch4.html">Nästa fråga</a>
+            <a href="index-branch4.html" class ="next-question">Nästa fråga</a>
         </div>
     </div>`
 }
