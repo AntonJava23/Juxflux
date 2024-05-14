@@ -79,7 +79,7 @@ export default {
 
             <div v-show="correctAnswer">
                 <h2>Korrekt!</h2>
-                <a href="index3.html">Nästa fråga</a>
+                <a href="index-branch3.html">Nästa fråga</a>
             </div>
             <div v-show="wrongAnswer">
                 <h2>Du svara fel</h2>
