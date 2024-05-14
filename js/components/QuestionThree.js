@@ -30,7 +30,7 @@ export default {
                 'KD': '#976dd0', // lila
                 'MP': '#05a6ff', // blå
             },
-            threeCrowns: "images/treKronor.png",
+            crownLives: "images/enKrona.png",
             riksdagen: "images/riksdagen.png"
         }
     },
@@ -114,7 +114,7 @@ export default {
             }
         },
         getThreeCrowns(){
-            return this.threeCrowns;
+            return this.crownLives;
         },
 
         getRiksdagen(){
@@ -140,7 +140,7 @@ export default {
     template: ` 
     <div class="Questionthree">
         <div id="head">
-            <img :src="getThreeCrowns()" alt="Riksdagens logga tre kronor" id="threeCrowns">
+            <img :src="getThreeCrowns()" alt="Riksdagens logga tre kronor" id=  crownLives">
             Poäng: 2
             <img :src="getRiksdagen()" alt="Bild på riksdagen" id="riksdagen">
         </div>
