@@ -59,6 +59,10 @@ export default {
             
         },
 
+        homeButton() {
+            window.location.href = "index.html";
+        },
+
         nextQuestion() {
             window.location.href = "index-branch3.html";
         },
@@ -83,13 +87,15 @@ export default {
     },
 
     template: `
-    <div id="head">
+    <div class="header">
             <img :src="this.lives" alt="Riksdagens logga tre kronor" id="Lives">
             Poäng: 2
+        <button @click="homeButton" class="image-button">
             <img :src="this.homeButton" alt="Bild på riksdagen" id="riksdagen">
-        </div>
+        </button>
+    </div>
     <div class="quiz-portrait">
-        <h1>Vem är ministern?</h1>        
+        <h2>Vem är ministern?</h2>        
         <div v-if="showPlaceholder" class="placeholder-text">
             <p>En av dessa fyra är minister, de andra är ledamöter. Välj den som är minister!</p>
         </div>
@@ -113,10 +119,10 @@ export default {
                 </p>
             </li>
         </ul>
-        <div v-show="correctAnswer || wrongAnswer">
-            <button @click="nextQuestion">Nästa fråga</button>
-        </div>
     </div>    
+        <div v-show="correctAnswer || wrongAnswer">
+            <button class="next-question" @click="nextQuestion">Nästa fråga</button>
+        </div>
     `    
 
     // template: `

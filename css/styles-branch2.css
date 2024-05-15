@@ -1,4 +1,4 @@
-body::before {
+/* body::before {
     content: "";
     position: fixed;
     top: 0;
@@ -8,7 +8,7 @@ body::before {
     z-index: -1;
     background-image: url("../images/background_image.png");
     filter: opacity(20%);
-}
+} */
 
 .quiz-portrait ul {
     padding-left: 5%;
@@ -21,7 +21,6 @@ body::before {
     justify-content: center;
     align-items: center;
 }
-
 
 .portrait-item {
     position: relative;
