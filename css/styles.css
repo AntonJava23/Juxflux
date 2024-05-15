@@ -1,6 +1,6 @@
 body::before { /*Needed to place picture behind everything and ony changing this opacity to 10%*/
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -31,6 +31,11 @@ body::before { /*Needed to place picture behind everything and ony changing this
     
 }
 
+#threeCrowns, #riksdagen{
+    width: 55px;
+    height: auto;
+}
+
 .next-question {
     display: block;
     padding: 10px;
@@ -42,5 +47,4 @@ body::before { /*Needed to place picture behind everything and ony changing this
     font-size: 16;
     border: none;
     transform: rotate(-1deg);
-
 }
