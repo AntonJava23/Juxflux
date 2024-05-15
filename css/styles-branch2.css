@@ -124,6 +124,11 @@
     cursor: pointer;
 }
 
+.image-button span {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
 .image-button img {
     display: block;
 }

@@ -93,7 +93,7 @@ export default {
             Poäng: 2
         <button @click="homeButton" class="image-button">
             <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
-            <span>Home</span>
+            <span>Hem</span>
         </button>
     </div>
     <div class="quiz-portrait">
