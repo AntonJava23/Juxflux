@@ -21,6 +21,8 @@ export default {
                     return
                 } else if (item?.bild_url_192 === "https://data.riksdagen.se/filarkiv/bilder/ledamot/820d6a20-1170-4915-bdff-e6175011bf0b_192.jpg") {
                     return
+                } else if (item?.bild_url_192 === "https://data.riksdagen.se/filarkiv/bilder/ledamot/2a0595a4-c4ef-470e-887f-d127e283721b_192.jpg") {
+                    return
                 }
 
                 this.commissioners.push({

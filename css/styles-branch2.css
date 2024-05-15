@@ -1,10 +1,39 @@
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url("../images/background_image.png");
+    filter: opacity(20%);
+}
+
 .quiz-portrait ul {
-    padding: 0;
+    padding-left: 5%;
     /* Remove default padding from <ul> */
     margin: 0;
     /* Remove default margin from <ul> */
     list-style-type: none;
     /* Remove list item dots */
+}
+
+.portrait-item {
+    position: relative;
+    flex: 1 1 45%;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 350px; /* Adjust this height as necessary */
+}
+
+.image-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
 .quiz-portrait li {
@@ -16,6 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: sans-serif;
 }
 
 .quiz-portrait h2 {
@@ -35,11 +65,27 @@
     /* Set image height */
     width: auto;
     /* Maintain aspect ratio */
-    border: 2px solid black;
+    /* border: 2px solid black; */
     /* Transparent border to maintain space */
     transition: border 0.3s ease;
     /* Smooth transition for hover effect */
+}
 
+.indicator {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 24px;
+}
+
+.indicator.correct {
+    content: '✓';
+    color: green;
+}
+
+.indicator.incorrect {
+    content: '✗';
+    color: red;
 }
 
 /* Add outline or border on hover */
@@ -48,6 +94,23 @@
     /* Example: Blue border on hover */
     outline: none;
     /* No additional outline */
+}
+
+.quiz-portrait button {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-family: sans-serif;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 /* Media queries to handle different screen sizes */
