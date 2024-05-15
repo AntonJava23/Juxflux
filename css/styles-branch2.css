@@ -1,6 +1,6 @@
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -17,13 +17,18 @@ body::before {
     /* Remove default margin from <ul> */
     list-style-type: none;
     /* Remove list item dots */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .portrait-item {
     position: relative;
     flex: 1 1 45%;
     margin: 5px;
     text-align: center;
+    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,10 +70,14 @@ body::before {
     /* Set image height */
     width: auto;
     /* Maintain aspect ratio */
-    /* border: 2px solid black; */
+    border: 1px solid transparent;
     /* Transparent border to maintain space */
     transition: border 0.3s ease;
     /* Smooth transition for hover effect */
+}
+
+.faded {
+    opacity: 0.5;
 }
 
 .indicator {
@@ -90,10 +99,7 @@ body::before {
 
 /* Add outline or border on hover */
 .quiz-portrait img:hover {
-    border: 2px solid blue;
-    /* Example: Blue border on hover */
-    outline: none;
-    /* No additional outline */
+    border: 1px solid black;
 }
 
 .quiz-portrait button {
@@ -111,6 +117,16 @@ body::before {
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s, transform 0.2s;
+}
+
+.placeholder-text {
+    width: 100%;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #333;
+    margin: 20px 0;
+    order: 2;
 }
 
 /* Media queries to handle different screen sizes */

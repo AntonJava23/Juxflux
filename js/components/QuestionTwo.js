@@ -14,8 +14,11 @@ export default {
             wrongAnswer: false,
             showPortraitName: false,
             portraitName: "",
-            selectedPortraitIndex: null
-
+            selectedPortraitIndex: null,
+            showPlaceholder: true,
+            selectionLocked: false,
+            homeButton: "../../images/riksdagen.png",
+            lives: "../../images/treKronor.png"
         }
     },
 
@@ -38,7 +41,7 @@ export default {
         },
 
         handleClick(index) {
-            // const isMinister = event.target.dataset.minister === "true"
+            if (this.selectionLocked) return;  // Prevent further clicks if selection is locked
             const isMinister = this.portraits[index].minister;
             console.log(`Image clicked`, typeof isMinister, isMinister);
 
@@ -51,6 +54,9 @@ export default {
             }
             this.showPortraitName = true
             this.selectedPortraitIndex = index
+            this.showPlaceholder = false
+            this.selectionLocked = true;
+            
         },
 
         nextQuestion() {
@@ -77,29 +83,71 @@ export default {
     },
 
     template: `
-        <div class="quiz-portrait">
-            <h1>Vem är minister?</h1>
-            <ul>
-                <li v-for="(port, index) in portraits" :key="port.url" class="portrait-item">
-                    <div class="image-wrapper" @click="handleClick(index)">
-                        <img :src="port.url" :data-minister="port.minister" alt="Bild på ledamot eller minister"/>                    
-                        <span v-if="showPortraitName && selectedPortraitIndex === index" 
-                              :class="{'indicator': true, 'correct': port.minister, 'incorrect': !port.minister}">
-                            <template v-if="port.minister">&#10003;</template>
-                            <template v-else>&#10007;</template>
-                        </span>
-                    </div>
-                    <p v-show="showPortraitName"> 
-                        {{ port.name }} <br> 
-                        {{ port.party }} <br> 
-                        {{ port.status }} 
-                    </p>         
-                </li>
-            </ul>
-
-            <div v-show="correctAnswer || wrongAnswer">
-                <button @click="nextQuestion">Nästa fråga</button>
-            </div>
+    <div id="head">
+            <img :src="this.lives" alt="Riksdagens logga tre kronor" id="Lives">
+            Poäng: 2
+            <img :src="this.homeButton" alt="Bild på riksdagen" id="riksdagen">
         </div>
-    `
+    <div class="quiz-portrait">
+        <h1>Vem är ministern?</h1>        
+        <div v-if="showPlaceholder" class="placeholder-text">
+            <p>En av dessa fyra är minister, de andra är ledamöter. Välj den som är minister!</p>
+        </div>
+        <ul>
+            <li v-for="(port, index) in portraits" :key="port.url" class="portrait-item">
+                <div class="image-wrapper" @click="handleClick(index)">
+                    <img 
+                        :src="port.url" 
+                        :data-minister="port.minister" 
+                        alt="Bild på ledamot eller minister"
+                        :class="{'faded': selectedPortraitIndex !== null && selectedPortraitIndex !== index}"
+                    />
+                    <span v-if="showPortraitName && selectedPortraitIndex === index" 
+                          :class="{'indicator': true, 'correct': port.minister, 'incorrect': !port.minister}">
+                        <template v-if="port.minister">&#10003;</template>
+                        <template v-else>&#10007;</template>
+                    </span>
+                </div>
+                <p v-show="showPortraitName">
+                    {{ port.name }} <br> {{ port.party }} <br> {{ port.status }}
+                </p>
+            </li>
+        </ul>
+        <div v-show="correctAnswer || wrongAnswer">
+            <button @click="nextQuestion">Nästa fråga</button>
+        </div>
+    </div>    
+    `    
+
+    // template: `
+    //     <div class="info-bar">
+
+    //     </div>
+
+    //     <div class="quiz-portrait">
+    //         <h1>Vem är ministern?</h1>
+    //         <div v-if="showPlaceholder" class="placeholder-text">
+    //             <p>En av dessa fyra är minister, de 
+    //             andra är ledamöter. Välj den som är minister!</p>
+    //         </div>
+    //         <ul>
+    //             <li v-for="(port, index) in portraits" :key="port.url" class="portrait-item">
+    //                 <div class="image-wrapper" @click="handleClick(index)">
+    //                     <img :src="port.url" :data-minister="port.minister" alt="Bild på ledamot eller minister"/>                    
+    //                     <span v-if="showPortraitName && selectedPortraitIndex === index" 
+    //                           :class="{'indicator': true, 'correct': port.minister, 'incorrect': !port.minister}">
+    //                         <template v-if="port.minister">&#10003;</template>
+    //                         <template v-else>&#10007;</template>
+    //                     </span>
+    //                 </div>
+    //                 <p v-show="showPortraitName"> 
+    //                     {{ port.name }} <br> {{ port.party }} <br> {{ port.status }}                        
+    //                 </p>         
+    //             </li>
+    //         </ul>
+    //         <div v-show="correctAnswer || wrongAnswer">
+    //             <button @click="nextQuestion">Nästa fråga</button>
+    //         </div>
+    //     </div>
+    // `
 }
