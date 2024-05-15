@@ -139,8 +139,8 @@ export default {
     },
     template: ` 
     <div class="Questionthree">
-        <div id="head">
-            <img :src="getThreeCrowns()" alt="Riksdagens logga tre kronor" id=  crownLives">
+        <div class="header">
+            <img :src="getThreeCrowns()" alt="Riksdagens logga tre kronor" id="crownLives">
             Poäng: 2
             <img :src="getRiksdagen()" alt="Bild på riksdagen" id="riksdagen">
         </div>

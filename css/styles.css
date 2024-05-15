@@ -11,7 +11,7 @@ body::before { /*Needed to place picture behind everything and ony changing this
     
 }
 
-/* body {
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,9 +21,9 @@ body::before { /*Needed to place picture behind everything and ony changing this
     color: rgb(51, 51, 51);
     font-weight: bold;
     margin: 0;
-} */
+}
 
-.header {
+#header { /*class*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,12 +31,12 @@ body::before { /*Needed to place picture behind everything and ony changing this
     
 }
 
-#threeCrowns, #riksdagen{
+#threeCrowns, #riksdagen{ /*id...don't know why...*/
     width: 55px;
     height: auto;
 }
 
-.next-question {
+.next-question { /*class...don't know why*/
     display: block;
     padding: 10px;
     margin: 10px;
