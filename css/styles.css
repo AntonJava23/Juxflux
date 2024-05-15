@@ -11,7 +11,7 @@ body::before { /*Needed to place picture behind everything and ony changing this
     
 }
 
-body {
+/* body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,13 +21,14 @@ body {
     color: rgb(51, 51, 51);
     font-weight: bold;
     margin: 0;
-}
+} */
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 90%;
+    
 }
 
 .next-question {

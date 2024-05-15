@@ -15,9 +15,9 @@ export default {
             showPortraitName: false,
             portraitName: "",
             selectedPortraitIndex: null,
-            showPlaceholder: true,
+            showQuestionText: true,
             selectionLocked: false,
-            homeButton: "../../images/riksdagen.png",
+            homeButtonImage: "../../images/riksdagen.png",
             lives: "../../images/treKronor.png"
         }
     },
@@ -54,12 +54,13 @@ export default {
             }
             this.showPortraitName = true
             this.selectedPortraitIndex = index
-            this.showPlaceholder = false
+            this.showQuestionText = false
             this.selectionLocked = true;
             
         },
 
         homeButton() {
+            console.log("Button clicked, navigating to index.html");
             window.location.href = "index.html";
         },
 
@@ -91,12 +92,13 @@ export default {
             <img :src="this.lives" alt="Riksdagens logga tre kronor" id="Lives">
             Poäng: 2
         <button @click="homeButton" class="image-button">
-            <img :src="this.homeButton" alt="Bild på riksdagen" id="riksdagen">
+            <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
+            <span>Home</span>
         </button>
     </div>
     <div class="quiz-portrait">
         <h2>Vem är ministern?</h2>        
-        <div v-if="showPlaceholder" class="placeholder-text">
+        <div v-if="showQuestionText" class="question-text">
             <p>En av dessa fyra är minister, de andra är ledamöter. Välj den som är minister!</p>
         </div>
         <ul>
