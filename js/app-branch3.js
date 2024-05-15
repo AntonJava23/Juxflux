@@ -1,6 +1,7 @@
 import QuestionThree from "./components/QuestionThree.js";
 
 const app = {
+
 }
 
 const vueApp = Vue.createApp(app)
