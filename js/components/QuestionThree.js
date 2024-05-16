@@ -154,7 +154,8 @@ export default {
             }
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
             const fullPartyName = this.fullPartyNames[selectedParty.toUpperCase()];
-            this.correctAnswer = correct ? `Rätt! ${this.fullName}<br>tillhör ${fullPartyName}.` : `Fel! ${this.fullName} tillhör<br>inte ${fullPartyName}.`;
+            this.correctAnswer = this.fullName;
+            //this.correctAnswer = correct ? `Rätt! ${this.fullName}<br>tillhör ${fullPartyName}.` : `Fel! ${this.fullName} tillhör<br>inte ${fullPartyName}.`;
         }
     },
     template: ` 
@@ -166,6 +167,7 @@ export default {
             </div>
 
             <img :src="portrait" alt="Bild på ledamot"><br>
+            <div id="correctAnswer" v-html="correctAnswer"></div>
 
             <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)" :style="{ backgroundColor: partyColors[party] }">
                 <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="party-logo">
@@ -173,7 +175,6 @@ export default {
             </button>
         </div>
 
-        <div id="correctAnswer" v-html="correctAnswer"></div>
 
         <div>
             <a href="index-branch4.html" class ="next-question">Nästa fråga</a>

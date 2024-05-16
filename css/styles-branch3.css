@@ -26,3 +26,7 @@
     padding-right: 40px;
     border-style: none;
 }
+
+#correctAnswer {
+   text-align: center;
+}
