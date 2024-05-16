@@ -1,4 +1,5 @@
 import SverigesRiksdag from "../services/SverigesRiksdag.js";
+import { store } from "../store/storeData.js";
 
 export default {
     name: "QuizPortrait",
@@ -17,6 +18,7 @@ export default {
             selectedPortraitIndex: null,
             showQuestionText: true,
             selectionLocked: false,
+            store
         }
     },
 
@@ -42,15 +44,17 @@ export default {
             if (isMinister) {
                 this.correctAnswer = true
                 this.wrongAnswer = false
+                this.store.score += 1 // Increment score for correct answer
             } else {
                 this.wrongAnswer = true
                 this.correctAnswer = false
+                this.store.health -= 1 // Decrement health for wrong answer
             }
             this.showPortraitName = true
             this.selectedPortraitIndex = index
             // this.showQuestionText = false
             this.selectionLocked = true;
-            
+
         },
 
         nextQuestion() {
@@ -104,5 +108,5 @@ export default {
         <div v-show="correctAnswer || wrongAnswer" class="button-container">
             <button class="next-question" @click="nextQuestion">Nästa fråga &rarr;</button>
         </div>
-    `        
+    `
 }
