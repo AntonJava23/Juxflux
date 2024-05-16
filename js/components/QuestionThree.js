@@ -53,7 +53,7 @@ export default {
                 // this.partyMembers = ['V', 'SD'];
             } else {
                 this.whichParties = ['MP', 'KD'];
-               // this.partyMembers = ['MP', 'KD'];
+                // this.partyMembers = ['MP', 'KD'];
             }
         },
 
@@ -102,8 +102,8 @@ export default {
          * @param {*} party 
          * @returns 
          */
-        getPartyLogo(party){
-            switch(party) {
+        getPartyLogo(party) {
+            switch (party) {
                 case 'V':
                     return this.vLogo;
                 case 'SD':
@@ -114,30 +114,30 @@ export default {
                     return this.kdLogo;
             }
         },
-        getThreeCrowns(){
+        getThreeCrowns() {
             return this.crownLives;
         },
 
-        getRiksdagen(){
+        getRiksdagen() {
             return this.riksdagen;
         },
 
-        checkLives(){
-            if (lives === 3){
-                this.getThreeCrowns()
-            }
-            else if(lives === 2){
-                this.getTwoCrowns()
-            }
-            else if (lives === 1){
-                this.getOneCrown()
-            }
-            else{
-                gameOver()
-            }
-        },
+        // checkLives(){
+        //     if (lives === 3){
+        //         this.getThreeCrowns()
+        //     }
+        //     else if(lives === 2){
+        //         this.getTwoCrowns()
+        //     }
+        //     else if (lives === 1){
+        //         this.getOneCrown()
+        //     }
+        //     else{
+        //         gameOver()
+        //     }
+        // },
 
-        homeButton(){
+        homeButton() {
             window.location.href = "index.html";
         },
 
@@ -156,28 +156,40 @@ export default {
             const fullPartyName = this.fullPartyNames[selectedParty.toUpperCase()];
             this.correctAnswer = this.fullName;
             //this.correctAnswer = correct ? `Rätt! ${this.fullName}<br>tillhör ${fullPartyName}.` : `Fel! ${this.fullName} tillhör<br>inte ${fullPartyName}.`;
+        },
+        getButtonColor(party) {
+            if (this.selectedParty) {
+                if (party === this.fullPartyName) {
+                    return '#93bd5d'
+                }
+                else {
+                    return '#a2a2a2'
+                }
+            }
+            return this.partyColors[party];
         }
     },
     template: ` 
     <div class="Questionthree">
 
-        <div>
-            <div id="questionPart3">
+        <div id="questionPart3">
             Vilket parti tillhör <br>personen på bilden?
-            </div>
-
+            
             <img :src="portrait" alt="Bild på ledamot"><br>
             <div id="correctAnswer" v-html="correctAnswer"></div>
-
-            <button class="buttons-question-3" v-for="party in whichParties" :key="party" @click="checkAnswer(party)" :style="{ backgroundColor: partyColors[party] }">
-                <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="party-logo">
-                {{ fullPartyNames[party] }}
+            
+            <button class="buttons-question-3" 
+                    v-for="party in whichParties" 
+                    :key="party" 
+                    @click="checkAnswer(party)" 
+                    :style="{ backgroundColor: getButtonColor(party) }">
+            <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="party-logo">
+            {{ fullPartyNames[party] }}
             </button>
-        </div>
-
-
-        <div>
-            <a href="index-branch4.html" class ="next-question">Nästa fråga</a>
-        </div>
+            
+                <div v-show="correctAnswer">
+                <a href="index-branch4.html" class ="next-question">Nästa fråga &rarr;</a>
+                </div>
+            </div>
     </div>`
 }
