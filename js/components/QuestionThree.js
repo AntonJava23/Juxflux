@@ -129,13 +129,16 @@ export default {
             else if(lives === 2){
                 this.getTwoCrowns()
             }
-
             else if (lives === 1){
                 this.getOneCrown()
             }
             else{
                 gameOver()
             }
+        },
+
+        homeButton(){
+            window.location.href = "index.html";
         },
 
         /**
@@ -159,7 +162,10 @@ export default {
         <div class="header">
             <img :src="'../images/threeCrowns.png'" alt="Riksdagens logga tre kronor" id="crownLives">
             Poäng: 2
+            <button @click="homeButton" class="image-button">
             <img :src="'../images/riksdagen.png'" alt="Bild på riksdagen" id="riksdagen">
+            <span>Hem</span>
+            </button>
         </div>
 
         <div>
