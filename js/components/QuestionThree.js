@@ -10,6 +10,7 @@ export default {
             party: "",
             memberDataLoaded: false,
             correctAnswer: "",
+            lives: 3,
             whichParties: [],
             fullPartyNames: { //All the alternatives for parties.
                 'V': 'Vänsterpartiet',
@@ -121,6 +122,22 @@ export default {
             return this.riksdagen;
         },
 
+        checkLives(){
+            if (lives === 3){
+                this.getThreeCrowns()
+            }
+            else if(lives === 2){
+                this.getTwoCrowns()
+            }
+
+            else if (lives === 1){
+                this.getOneCrown()
+            }
+            else{
+                gameOver()
+            }
+        },
+
         /**
          * Here we check the answer.
          * @param {*} selectedParty 
@@ -134,15 +151,15 @@ export default {
             }
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
             const fullPartyName = this.fullPartyNames[selectedParty.toUpperCase()];
-            this.correctAnswer = correct ? `Rätt! ${this.fullName} tillhör<br>${fullPartyName}.` : `Fel! ${this.fullName} tillhör inte<br>${fullPartyName}.`;
+            this.correctAnswer = correct ? `Rätt! ${this.fullName}<br>tillhör ${fullPartyName}.` : `Fel! ${this.fullName} tillhör<br>inte ${fullPartyName}.`;
         }
     },
     template: ` 
     <div class="Questionthree">
-        <div id="head">
-            <img :src="getThreeCrowns()" alt="Riksdagens logga tre kronor" id=  crownLives">
+        <div class="header">
+            <img :src="'../images/threeCrowns.png'" alt="Riksdagens logga tre kronor" id="crownLives">
             Poäng: 2
-            <img :src="getRiksdagen()" alt="Bild på riksdagen" id="riksdagen">
+            <img :src="'../images/riksdagen.png'" alt="Bild på riksdagen" id="riksdagen">
         </div>
 
         <div>

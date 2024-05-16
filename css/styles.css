@@ -7,11 +7,11 @@ body::before { /*Needed to place picture behind everything and ony changing this
     bottom: 0;
     z-index: -1;
     background-image: url("../images/background.png");
-    filter: opacity(20%);
+    filter: opacity(10%);
     
 }
 
-/* body {
+body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,17 +21,21 @@ body::before { /*Needed to place picture behind everything and ony changing this
     color: rgb(51, 51, 51);
     font-weight: bold;
     margin: 0;
-} */
+}
 
-.header {
+#header { /*class*/
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    
 }
 
-.next-question {
+#threeCrowns, #riksdagen{ /*id...don't know why...*/
+    width: 55px;
+    height: auto;
+}
+
+.next-question { /*class...don't know why*/
     display: block;
     padding: 10px;
     margin: 10px;
@@ -42,20 +46,5 @@ body::before { /*Needed to place picture behind everything and ony changing this
     font-size: 16;
     border: none;
     transform: rotate(-1deg);
-}
 
-.image-button {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-.image-button span {
-    font-family: sans-serif;
-    font-weight: bold;
-}
-
-.image-button img {
-    display: block;
 }
