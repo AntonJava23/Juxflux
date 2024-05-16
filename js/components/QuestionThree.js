@@ -161,7 +161,7 @@ export default {
     <div class="Questionthree">
 
         <div>
-            <div id="questionPart">
+            <div id="questionPart3">
             Vilket parti tillhör <br>personen på bilden?
             </div>
 

@@ -31,13 +31,13 @@ body {
     padding: 0.25rem 1rem;
 }
 
-/*id...don't know why...*/
+/*id*/
 #threeCrowns, #riksdagen{ 
     width: 55px;
     height: auto;
 }
 
-/*class...don't know why*/
+/*class*/
 .next-question { 
     display: block;
     padding: 10px;
