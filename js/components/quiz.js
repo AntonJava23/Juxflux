@@ -1,5 +1,6 @@
 import riksdagen from '../util/riksdagen.js'
 import shuffle from '../util/shuffle.js'
+import { store } from '../store/storeData.js'
 
 export default {
     data() {
@@ -14,7 +15,8 @@ export default {
             showResults: false,
             showCorrect: false,
             showIncorrect: false,
-            isPortraitSelected: false
+            isPortraitSelected: false,
+            store
         }
     },
     methods: {
@@ -106,6 +108,6 @@ export default {
                     <input type="button" @click="refreshMembers" value="Refresh">
                     <h1 v-show="showCorrect"> RÄTT! </h1>
                     <h1 v-show="showIncorrect"> FEL! </h1>
-                    <p v-show="showResults">{{ correct }} rätta och {{ incorrect }} fel svar</p> 
+                    <p v-show="showResults">{{ correct }} rätta och {{ incorrect }} fel svar. </p> 
                 </div>`
 }
