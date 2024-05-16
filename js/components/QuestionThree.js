@@ -151,15 +151,15 @@ export default {
             }
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
             const fullPartyName = this.fullPartyNames[selectedParty.toUpperCase()];
-            this.correctAnswer = correct ? `Rätt! ${this.fullName} tillhör<br>${fullPartyName}.` : `Fel! ${this.fullName} tillhör inte<br>${fullPartyName}.`;
+            this.correctAnswer = correct ? `Rätt! ${this.fullName}<br>tillhör ${fullPartyName}.` : `Fel! ${this.fullName} tillhör<br>inte ${fullPartyName}.`;
         }
     },
     template: ` 
     <div class="Questionthree">
         <div class="header">
-            <img :src="getThreeCrowns()" alt="Riksdagens logga tre kronor" id="crownLives">
+            <img :src="'../images/threeCrowns.png'" alt="Riksdagens logga tre kronor" id="crownLives">
             Poäng: 2
-            <img :src="getRiksdagen()" alt="Bild på riksdagen" id="riksdagen">
+            <img :src="'../images/riksdagen.png'" alt="Bild på riksdagen" id="riksdagen">
         </div>
 
         <div>

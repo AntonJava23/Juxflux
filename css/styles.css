@@ -7,7 +7,7 @@ body::before { /*Needed to place picture behind everything and ony changing this
     bottom: 0;
     z-index: -1;
     background-image: url("../images/background.png");
-    filter: opacity(20%);
+    filter: opacity(10%);
     
 }
 
@@ -28,7 +28,6 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    
 }
 
 #threeCrowns, #riksdagen{ /*id...don't know why...*/
