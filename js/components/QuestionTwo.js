@@ -35,15 +35,11 @@ export default {
             console.log("3 ledamör porträtt, 1 minister", this.portraits);
 
             this.shuffle(this.portraits)
-            console.log("Shuffle", this.portraits);
-
-
         },
 
         handleClick(index) {
             if (this.selectionLocked) return;  // Prevent further clicks if selection is locked
             const isMinister = this.portraits[index].minister;
-            console.log(`Image clicked`, typeof isMinister, isMinister);
 
             if (isMinister) {
                 this.correctAnswer = true
@@ -60,7 +56,6 @@ export default {
         },
 
         homeButton() {
-            console.log("Button clicked, navigating to index.html");
             window.location.href = "index.html";
         },
 
@@ -83,8 +78,6 @@ export default {
                     array[randomIndex], array[currentIndex]];
             }
         }
-
-
     },
 
     template: `
@@ -92,8 +85,8 @@ export default {
             <img :src="this.lives" alt="Riksdagens logga tre kronor" id="Lives">
             Poäng: 2
         <button @click="homeButton" class="image-button">
-            <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
-            <span>Hem</span>
+        <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
+        <span>Hem</span>
         </button>
     </div>
     <div class="quiz-portrait">
