@@ -17,8 +17,8 @@ export default {
             selectedPortraitIndex: null,
             showQuestionText: true,
             selectionLocked: false,
-            homeButtonImage: "../../images/riksdagen.png",
-            lives: "../../images/threeCrowns.png"
+            // homeButtonImage: "../../images/riksdagen.png",
+            // lives: "../../images/threeCrowns.png"
         }
     },
 
@@ -55,9 +55,9 @@ export default {
             
         },
 
-        homeButton() {
-            window.location.href = "index.html";
-        },
+        // homeButton() {
+        //     window.location.href = "index.html";
+        // },
 
         nextQuestion() {
             window.location.href = "index-branch3.html";
@@ -80,15 +80,7 @@ export default {
         }
     },
 
-    template: `
-    <div class="header">
-            <img :src="this.lives" alt="Riksdagens logga tre kronor" id="Lives">
-            Poäng: 2
-        <button @click="homeButton" class="image-button">
-        <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
-        <span>Hem</span>
-        </button>
-    </div>
+    template: `    
     <div class="quiz-portrait">
         <h2>Vem är ministern?</h2>        
         <div v-if="showQuestionText" class="question-text">
@@ -151,4 +143,13 @@ export default {
     //         </div>
     //     </div>
     // `
+
+    // <div class="header">
+    //     <img :src="this.lives" alt="Riksdagens logga tre kronor" id="Lives">
+    //         Poäng: 2
+    //     <button @click="homeButton" class="image-button">
+    //         <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
+    //         <span>Hem</span>
+    //     </button>
+    // </div>
 }
