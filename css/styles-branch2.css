@@ -117,6 +117,22 @@
     order: 2;
 }
 
+.image-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.image-button span {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.image-button img {
+    display: block;
+}
+
 /* Media queries to handle different screen sizes */
 @media (min-width: 768px) {
     .quiz-portrait ul {

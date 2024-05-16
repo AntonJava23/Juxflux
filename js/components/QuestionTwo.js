@@ -18,7 +18,7 @@ export default {
             showQuestionText: true,
             selectionLocked: false,
             homeButtonImage: "../../images/riksdagen.png",
-            lives: "../../images/treKronor.png"
+            lives: "../../images/threeCrowns.png"
         }
     },
 
