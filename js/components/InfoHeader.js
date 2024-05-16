@@ -6,16 +6,12 @@ export default {
     data() {
         return {
             homeButtonImage: "../../images/riksdagen.png",
-            lives: "../../images/threeCrowns.png",
+            // lives: "../../images/threeCrowns.png",
             store
         }
     },
 
-    methods: {
-        homeButton() {
-            window.location.href = "index.html";
-        },
-
+    computed: {
         lives() {
             const health = this.store.health;
             switch (health) {
@@ -29,6 +25,14 @@ export default {
                     return ''; // Handle case where health is 0 or invalid
             }
         }
+    },
+
+    methods: {
+        homeButton() {
+            window.location.href = "index.html";
+        },
+
+
     },
 
 
