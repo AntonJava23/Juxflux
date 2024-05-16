@@ -158,15 +158,15 @@ export default {
         }
     },
     template: ` 
+    <div class="header">
+        <img :src="'../images/threeCrowns.png'" alt="Riksdagens logga tre kronor" id="crownLives">
+        Poäng: 2
+        <button @click="homeButton" class="image-button">
+        <img :src="'../images/riksdagen.png'" alt="Bild på riksdagen" id="riksdagen">
+        <span>Hem</span>
+        </button>
+    </div>
     <div class="Questionthree">
-        <div class="header">
-            <img :src="'../images/threeCrowns.png'" alt="Riksdagens logga tre kronor" id="crownLives">
-            Poäng: 2
-            <button @click="homeButton" class="image-button">
-            <img :src="'../images/riksdagen.png'" alt="Bild på riksdagen" id="riksdagen">
-            <span>Hem</span>
-            </button>
-        </div>
 
         <div>
             <div id="questionPart">
