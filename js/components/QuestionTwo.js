@@ -48,6 +48,7 @@ export default {
             } else {
                 this.wrongAnswer = true
                 this.correctAnswer = false
+                this.store.health -= 1 // Reduce HP for incorrect answer
             }
             this.showPortraitName = true
             this.selectedPortraitIndex = index

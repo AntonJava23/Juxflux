@@ -34,7 +34,7 @@ export default {
 
     template: `
     <div class="header">
-        <img :src="lives" alt="Riksdagens logga tre kronor" id="Lives">
+        <img :src="lives" alt="Riksdagens logga tre kronor">
             Poäng: {{ store.score }}
         <button @click="homeButton" class="image-button">
             <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
