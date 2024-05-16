@@ -39,7 +39,7 @@ body {
 
 /*class...don't know why*/
 .next-question { 
-    display: block;
+    display: flex;
     padding: 10px;
     margin: 10px;
     background-color: rgb(51, 51, 51);

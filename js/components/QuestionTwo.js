@@ -110,46 +110,5 @@ export default {
         <div v-show="correctAnswer || wrongAnswer">
             <button class="next-question" @click="nextQuestion">Nästa fråga</button>
         </div>
-    `    
-
-    // template: `
-    //     <div class="info-bar">
-
-    //     </div>
-
-    //     <div class="quiz-portrait">
-    //         <h1>Vem är ministern?</h1>
-    //         <div v-if="showPlaceholder" class="placeholder-text">
-    //             <p>En av dessa fyra är minister, de 
-    //             andra är ledamöter. Välj den som är minister!</p>
-    //         </div>
-    //         <ul>
-    //             <li v-for="(port, index) in portraits" :key="port.url" class="portrait-item">
-    //                 <div class="image-wrapper" @click="handleClick(index)">
-    //                     <img :src="port.url" :data-minister="port.minister" alt="Bild på ledamot eller minister"/>                    
-    //                     <span v-if="showPortraitName && selectedPortraitIndex === index" 
-    //                           :class="{'indicator': true, 'correct': port.minister, 'incorrect': !port.minister}">
-    //                         <template v-if="port.minister">&#10003;</template>
-    //                         <template v-else>&#10007;</template>
-    //                     </span>
-    //                 </div>
-    //                 <p v-show="showPortraitName"> 
-    //                     {{ port.name }} <br> {{ port.party }} <br> {{ port.status }}                        
-    //                 </p>         
-    //             </li>
-    //         </ul>
-    //         <div v-show="correctAnswer || wrongAnswer">
-    //             <button @click="nextQuestion">Nästa fråga</button>
-    //         </div>
-    //     </div>
-    // `
-
-    // <div class="header">
-    //     <img :src="this.lives" alt="Riksdagens logga tre kronor" id="Lives">
-    //         Poäng: 2
-    //     <button @click="homeButton" class="image-button">
-    //         <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
-    //         <span>Hem</span>
-    //     </button>
-    // </div>
+    `        
 }
