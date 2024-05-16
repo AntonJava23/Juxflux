@@ -48,7 +48,7 @@ export default {
             }
             this.showPortraitName = true
             this.selectedPortraitIndex = index
-            this.showQuestionText = false
+            // this.showQuestionText = false
             this.selectionLocked = true;
             
         },
@@ -77,7 +77,7 @@ export default {
     template: `    
     <div class="quiz-portrait">
         <h2>Vem är ministern?</h2>        
-        <div v-if="showQuestionText" class="question-text">
+        <div v-show="showQuestionText" class="question-text keep-space">
             <p>En av dessa fyra är minister, de andra är ledamöter. Välj den som är minister!</p>
         </div>
         <ul>
