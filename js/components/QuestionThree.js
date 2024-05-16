@@ -10,6 +10,7 @@ export default {
             party: "",
             memberDataLoaded: false,
             correctAnswer: "",
+            lives: 3,
             whichParties: [],
             fullPartyNames: { //All the alternatives for parties.
                 'V': 'Vänsterpartiet',
@@ -119,6 +120,22 @@ export default {
 
         getRiksdagen(){
             return this.riksdagen;
+        },
+
+        checkLives(){
+            if (lives === 3){
+                this.getThreeCrowns()
+            }
+            else if(lives === 2){
+                this.getTwoCrowns()
+            }
+
+            else if (lives === 1){
+                this.getOneCrown()
+            }
+            else{
+                gameOver()
+            }
         },
 
         /**
