@@ -17,8 +17,6 @@ export default {
             selectedPortraitIndex: null,
             showQuestionText: true,
             selectionLocked: false,
-            // homeButtonImage: "../../images/riksdagen.png",
-            // lives: "../../images/threeCrowns.png"
         }
     },
 
@@ -54,10 +52,6 @@ export default {
             this.selectionLocked = true;
             
         },
-
-        // homeButton() {
-        //     window.location.href = "index.html";
-        // },
 
         nextQuestion() {
             window.location.href = "index-branch3.html";
@@ -107,8 +101,8 @@ export default {
             </li>
         </ul>
     </div>    
-        <div v-show="correctAnswer || wrongAnswer">
-            <button class="next-question" @click="nextQuestion">Nästa fråga</button>
+        <div v-show="correctAnswer || wrongAnswer" class="button-container">
+            <button class="next-question" @click="nextQuestion">Nästa fråga &rarr;</button>
         </div>
     `        
 }
