@@ -28,7 +28,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    padding: 0.25rem 1rem;
 }
 
 /*id...don't know why...*/
