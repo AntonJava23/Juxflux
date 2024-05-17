@@ -73,7 +73,7 @@ export default {
                 else {
                     this.incorrect++
                     this.store.health--
-                    
+
                 }
 
                 console.log(this.correct + " correct " + this.incorrect + " incorrect")
@@ -90,21 +90,31 @@ export default {
         }
     },
     created() {
-        riksdagen.getPersonList()
-            .then(personList => {
-                this.allMembers = riksdagen.getNamesAndParties(personList)
-                shuffle.shuffle(this.allMembers)
-            })
-            .then(() => {
-                for (let i = 0; i < 4; i++) {
-                    this.members.push(this.allMembers[i])
-                }
-                this.memberNames = [...this.members] //make an independent copy of the members array
-                shuffle.shuffle(this.memberNames)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        // riksdagen.getPersonList()
+        //     .then(personList => {
+        //         this.allMembers = riksdagen.getNamesAndParties(personList)
+        //         shuffle.shuffle(this.allMembers)
+        //     })
+        //     .then(() => {
+        //         for (let i = 0; i < 4; i++) {
+        //             this.members.push(this.allMembers[i])
+        //         }
+        //         this.memberNames = [...this.members] //make an independent copy of the members array
+        //         shuffle.shuffle(this.memberNames)
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     })
+
+        const jsonData = JSON.parse(sessionStorage.getItem('questionFourStorage'))
+
+        this.allMembers = riksdagen.getNamesAndParties(jsonData)
+        shuffle.shuffle(this.allMembers)
+        for (let i = 0; i < 4; i++) {
+            this.members.push(this.allMembers[i])
+        }
+        this.memberNames = [...this.members] //make an independent copy of the members array
+        shuffle.shuffle(this.memberNames)
 
     },
     template: `<div class="comp">
