@@ -63,3 +63,14 @@ body {
 .image-button img {
     display: block;
 }
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    margin-top: 5px; /* Adjust spacing as needed */
+    font-size: 1.2em; /* Adjust font size as needed */
+}

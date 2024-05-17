@@ -1,3 +1,5 @@
+import { store } from "../store/StoreData.js";
+
 export default {
     name: "QuestionThree",
     props: {
