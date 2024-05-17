@@ -1,4 +1,4 @@
-import { store } from "../store/storeData.js";
+import { store } from "../store/StoreData.js";
 
 export default {
     name: "InfoHeader",

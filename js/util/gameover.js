@@ -1,4 +1,4 @@
-import { store } from "../store/storeData"
+import { store } from "../store/StoreData"
 
 export default {
     handleGameOver() {
