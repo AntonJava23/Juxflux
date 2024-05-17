@@ -1,5 +1,9 @@
 import QuestionThree from "./components/QuestionThree.js";
 import infoHeader from "./components/InfoHeader.js";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ed9f87 (adding picture of riksdagen big)
 const app = {
 
 }

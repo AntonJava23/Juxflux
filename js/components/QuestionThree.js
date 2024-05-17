@@ -1,4 +1,6 @@
 import { store } from "../store/storeData.js";
+import { store } from "../store/storeData.js";
+
 export default {
     name: "QuestionThree",
     props: {
@@ -122,21 +124,6 @@ export default {
         getRiksdagen() {
             return this.riksdagen;
         },
-
-        // checkLives(){
-        //     if (lives === 3){
-        //         this.getThreeCrowns()
-        //     }
-        //     else if(lives === 2){
-        //         this.getTwoCrowns()
-        //     }
-        //     else if (lives === 1){
-        //         this.getOneCrown()
-        //     }
-        //     else{
-        //         gameOver()
-        //     }
-        // },
 
         homeButton() {
             window.location.href = "index.html";
