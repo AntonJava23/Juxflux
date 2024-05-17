@@ -1,4 +1,5 @@
 import SverigesRiksdag from "../services/SverigesRiksdag.js";
+import { store } from "../store/StoreData.js";
 
 export default {
     name: "QuizPortrait",
