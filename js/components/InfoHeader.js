@@ -6,7 +6,6 @@ export default {
     data() {
         return {
             homeButtonImage: "../../images/riksdagen.png",
-            // lives: "../../images/threeCrowns.png",
             store
         }
     },
@@ -25,8 +24,9 @@ export default {
                     return ''; // Handle case where health is 0 or invalid
             }
         }
-    }
-    ,mounted() {
+    },
+
+    mounted() {
         this.store.health = Number(sessionStorage.getItem("health"))
         this.store.score = Number(sessionStorage.getItem("score"))
     },
@@ -38,7 +38,6 @@ export default {
 
 
     },
-
 
     template: `
     <div class="header">
