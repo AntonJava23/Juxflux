@@ -15,6 +15,7 @@ export default {
             lives: 3,
             whichParties: [],
             store,
+            selectedParty: null,
             fullPartyNames: { //All the alternatives for parties.
                 'V': 'Vänsterpartiet',
                 'SD': 'Sverigedemokraterna',
@@ -140,6 +141,7 @@ export default {
                 alert('No member data loaded');
                 return;
             }
+            this.selectedParty = selectedParty;
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
             const fullPartyName = this.fullPartyNames[selectedParty.toUpperCase()];
             if(correct){
@@ -155,11 +157,11 @@ export default {
 
         getButtonColor(party) {
             if (this.selectedParty) {
-                if (party === this.fullPartyName) {
-                    return '#93bd5d'
+                if (party === this.party) {
+                    return '#93bd5d'//green(correct)
                 }
                 else {
-                    return '#a2a2a2'
+                    return '#a2a2a2'//grey (incorrect)
                 }
             }
             return this.partyColors[party];
