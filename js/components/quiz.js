@@ -121,6 +121,7 @@ export default {
                     </div>
 
                     <input type="button" @click="refreshMembers" value="Refresh">
+                    <input type="button" @click="this.store.health = 3" value="Reset health">
                 </div>`
 }
 
