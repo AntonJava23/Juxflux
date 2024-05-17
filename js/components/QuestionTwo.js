@@ -55,6 +55,15 @@ export default {
             // this.showQuestionText = false
             this.selectionLocked = true;
 
+            // Set faded property for all incorrect portraits
+            this.portraits = this.portraits.map(portrait => {
+                if (!portrait.minister) {
+                    return { ...portrait, faded: true };
+                } else {
+                    return { ...portrait, faded: false };
+                }
+            });
+
         },
 
         nextQuestion() {
@@ -81,7 +90,7 @@ export default {
     template: `    
     <div class="quiz-portrait">
         <h2>Vem är ministern?</h2>        
-        <div v-show="showQuestionText" class="question-text keep-space">
+        <div v-show="showQuestionText" class="question-text">
             <p>En av dessa fyra är minister, de andra är ledamöter. Välj den som är minister!</p>
         </div>
         <ul>
@@ -91,7 +100,7 @@ export default {
                         :src="port.url" 
                         :data-minister="port.minister" 
                         alt="Bild på ledamot eller minister"
-                        :class="{'faded': selectedPortraitIndex !== null && selectedPortraitIndex !== index}"
+                        :class="{'faded': port.faded}"
                     />
                     <span v-if="showPortraitName && selectedPortraitIndex === index" 
                           :class="{'indicator': true, 'correct': port.minister, 'incorrect': !port.minister}">
