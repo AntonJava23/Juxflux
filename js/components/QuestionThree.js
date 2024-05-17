@@ -16,6 +16,7 @@ export default {
             whichParties: [],
             store,
             selectedParty: null,
+            //selectionLocked: false,
             fullPartyNames: { //All the alternatives for parties.
                 'V': 'Vänsterpartiet',
                 'SD': 'Sverigedemokraterna',
@@ -137,6 +138,7 @@ export default {
          * Sends the answer to the user if its correct or wrong. 
         */
         checkAnswer(selectedParty) {
+            if (this.selectionLocked) return;  // Prevent further clicks if selection is locked
             if (!this.memberDataLoaded) {
                 alert('No member data loaded');
                 return;
@@ -153,8 +155,12 @@ export default {
                 this.store.health -= 1;
             }
             this.handleSessionStorage();
+            this.selectionLocked= true;
         },
-
+        /**
+         * This method gives the alternatives a color to start with 
+         * and green or gray color when selected answer.
+         */
         getButtonColor(party) {
             if (this.selectedParty) {
                 if (party === this.party) {
@@ -174,25 +180,33 @@ export default {
     },
     template: ` 
     <div class="Questionthree">
-
-        <div id="questionPart3">
-            Vilket parti tillhör <br>personen på bilden?
-            
-            <img :src="portrait" alt="Bild på ledamot"><br>
-            <div id="correctAnswer" v-html="correctAnswer"></div>
-            
-            <button class="buttons-question-3" 
-                    v-for="party in whichParties" 
-                    :key="party" 
-                    @click="checkAnswer(party)" 
-                    :style="{ backgroundColor: getButtonColor(party) }">
-            <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="party-logo">
+    <div id="questionPart3">
+        Vilket parti tillhör <br>personen på bilden?
+        
+        <img :src="portrait" alt="Bild på ledamot"><br>
+        <div id="correctAnswer" v-html="correctAnswer"></div>
+        
+        <button class="buttons-question-3" 
+                v-for="party in whichParties" 
+                :key="party" 
+                @click="checkAnswer(party)" 
+                :style="{ backgroundColor: getButtonColor(party) }">
             {{ fullPartyNames[party] }}
-            </button>
-            
-                <div v-show="correctAnswer">
-                <a href="index-branch4.html" class ="next-question">Nästa fråga &rarr;</a>
-                </div>
-            </div>
-    </div>`
+            <span v-if="selectedParty" :class="{'indicator': true, 'correct': party === this.party, 'incorrect': party !== this.party}">
+                <img v-if="party === this.party" src="./images/correct.png" alt="Correct">
+                <img v-if="party !== this.party" src="./images/incorrect.png" alt="Incorrect">
+            </span>
+            <img :src="getPartyLogo(party)" alt="Partiloggan för {{ fullPartyNames[party]}}" class="party-logo">
+        </button>
+        
+        <div v-show="correctAnswer">
+            <a href="index-branch4.html" class="next-question">Nästa fråga &rarr;</a>
+        </div>
+    </div>
+</div>
+`
 }
+
+
+
+

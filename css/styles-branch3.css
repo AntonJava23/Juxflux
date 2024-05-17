@@ -28,6 +28,18 @@
     border-style: none;
 }
 
+.indicator {
+    position: absolute; 
+    top: 5px;
+    right: -30px; /* Positionera ikonen i övre högra hörnet av knappen */
+    height: 20px; 
+    width: 20px;
+}
+
+.correct, .incorrect {
+    display: block; 
+}
+
 #correctAnswer {
    text-align: center;
 }
