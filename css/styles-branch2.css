@@ -118,7 +118,7 @@
         align-items: center;
         min-height: 50px;
         /* Ensure content isn't too high up */
-        padding-top: 150px;
+        padding-top: 50px;
         /* Add some padding at the top */
     }
 }
