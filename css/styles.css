@@ -74,3 +74,20 @@ body {
     margin-top: 5px; /* Adjust spacing as needed */
     font-size: 1.2em; /* Adjust font size as needed */
 }
+
+@media (min-width: 768px) {
+    .header {
+        justify-content: center;
+        position: relative;
+    } 
+
+    .score-container {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .image-button {
+        margin-left: 20rem;
+    }
+}
