@@ -1,5 +1,5 @@
 .quiz-portrait ul {
-    padding-left: 5%;
+    padding-left: 4%;
     /* Remove default padding from <ul> */
     margin: 0;
     /* Remove default margin from <ul> */
@@ -29,8 +29,9 @@
 }
 
 .quiz-portrait li {
-    margin-right: 20px;
+    /* margin-right: 20px; */
     /* Add spacing between items */
+    margin: 0;
 }
 
 .quiz-portrait h1 {
@@ -118,9 +119,10 @@
         align-items: center;
         min-height: 50px;
         /* Ensure content isn't too high up */
-        padding-top: 150px;
+        padding-top: 10px;
         /* Add some padding at the top */
-    }
+        gap: 10px
+    }    
 }
 
 @media (max-width: 767px) {

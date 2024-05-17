@@ -42,7 +42,10 @@ export default {
     template: `
     <div class="header">
         <img :src="lives" alt="Riksdagens logga tre kronor">
-            Poäng: {{ store.score }}
+            <div class="score-container">
+                <span>Poäng:</span>
+                <span class="score">{{ store.score }}</span>
+            </div>
         <button @click="homeButton" class="image-button">
             <img :src="homeButtonImage" alt="Bild på riksdagen" id="riksdagen">
             <span>Hem</span>
