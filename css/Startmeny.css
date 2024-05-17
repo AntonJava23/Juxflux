@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-body::before { 
-=======
-body::before {
->>>>>>> Stashed changes
+ody::before { 
   content: "";
   position: fixed;
   top: 0;
@@ -12,48 +8,7 @@ body::before {
   z-index: -1;
   background-image: url("../images/background.png");
   filter: opacity(10%);
-<<<<<<< Updated upstream
-  
 }
- 
-h1 {
-  font-size: 6em;
-  margin-bottom: 2rem;
-  font-style: oblique;
-  color: rgb(53, 132, 132);
-  text-align: center;
-}
-
-p {
-  font-size: 2em;
-  margin-bottom: 2rem;
-  font-style: oblique;
-  color: rgb(53, 132, 132);
-  text-align: center;
-}
-
-img{
-  display: block; /* make the image a block-level element */
-
-  margin: 0 auto; /* center the image horizontally */
-
-  width: 30rem; /* make the image take up the full width of the container */
-
-  height: auto; /* allow the image to maintain its aspect ratio */
-}
-
-#startbutton {
-  position: absolute;
-
-  top: 50%; /* position the button in the middle vertically */
-
-  left: 50%; /* position the button in the middle horizontally */
-
-  transform: translate(-50%, -50%);
-=======
-}
-
-
 h1 {
   text-align: center; /* center the heading text */
   margin-bottom: 20px; /* add some space below the heading */
@@ -89,5 +44,4 @@ img {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
->>>>>>> Stashed changes
 }
