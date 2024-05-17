@@ -28,8 +28,8 @@ h1 {
 img {
   display: block; /* prevent the image from being inline with text */
   margin: 0 auto; /* center the image horizontally */
-  max-width: 100%; /* scale the image to fit the container */
-  height: 10em;
+  width: 100%; /* scale the image to fit the container */
+  height: 100%;
 }
 
 #start-button{

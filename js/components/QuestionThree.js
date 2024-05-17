@@ -16,8 +16,10 @@ export default {
             whichParties: [],
             store,
             selectedParty: null,
-            //selectionLocked: false,
-            fullPartyNames: { //All the alternatives for parties.
+            selectionLocked: false,
+
+            //All the alternatives for parties
+            fullPartyNames: { 
                 'V': 'Vänsterpartiet',
                 'SD': 'Sverigedemokraterna',
                 'MP': 'Miljöpartiet',
@@ -36,7 +38,7 @@ export default {
                 'KD': '#976dd0', // lila
                 'MP': '#05a6ff', // blå
             },
-            crownLives: "images/enKrona.png",
+            //crownLives: "images/enKrona.png",
             riksdagen: "images/riksdagen.png"
         }
     },
@@ -119,13 +121,13 @@ export default {
                     return this.kdLogo;
             }
         },
-        getThreeCrowns() {
-            return this.crownLives;
-        },
+        // getThreeCrowns() {
+        //     return this.crownLives;
+        // },
 
-        getRiksdagen() {
-            return this.riksdagen;
-        },
+        // getRiksdagen() {
+        //     return this.riksdagen;
+        // },
 
         homeButton() {
             window.location.href = "index.html";
@@ -172,8 +174,8 @@ export default {
             }
             return this.partyColors[party];
         },
+        /** saving stats in browser tab */
         handleSessionStorage() {
-            // saving stats in browser tab
             sessionStorage.setItem("health", this.store.health.toString())
             sessionStorage.setItem("score", this.store.score.toString())
         }

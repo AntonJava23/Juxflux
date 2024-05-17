@@ -35,7 +35,7 @@
 .indicator {
     position: absolute; 
     top: 5px;
-    right: -30px; /* Positionera ikonen i övre högra hörnet av knappen */
+    right: -30px; 
     height: 20px; 
     width: 20px;
 }
