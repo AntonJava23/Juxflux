@@ -17,7 +17,8 @@ export default {
                 party: person.parti,
                 portrait: person.bild_url_192,
                 year: person.fodd_ar,
-                id: person.intressent_id
+                id: person.intressent_id,
+                correctAnswer: false
             })
         }
         return namesAndParties

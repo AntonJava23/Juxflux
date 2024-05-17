@@ -25,6 +25,10 @@ export default {
                     return ''; // Handle case where health is 0 or invalid
             }
         }
+    }
+    ,mounted() {
+        this.store.health = Number(sessionStorage.getItem("health"))
+        this.store.score = Number(sessionStorage.getItem("score"))
     },
 
     methods: {
