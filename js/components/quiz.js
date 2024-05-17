@@ -1,6 +1,6 @@
 import riksdagen from '../util/riksdagen.js'
 import shuffle from '../util/shuffle.js'
-import { store } from '../store/storeData.js'
+import { store } from '../store/StoreData.js'
 
 export default {
     data() {
