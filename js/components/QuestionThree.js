@@ -1,5 +1,4 @@
-import { store } from "../store/storeData.js";
-import { store } from "../store/storeData.js";
+import { store } from "../store/StoreData.js";
 
 export default {
     name: "QuestionThree",
@@ -15,6 +14,7 @@ export default {
             correctAnswer: "",
             lives: 3,
             whichParties: [],
+            store,
             fullPartyNames: { //All the alternatives for parties.
                 'V': 'Vänsterpartiet',
                 'SD': 'Sverigedemokraterna',
@@ -142,9 +142,17 @@ export default {
             }
             const correct = selectedParty.toLowerCase() === this.party.toLowerCase();
             const fullPartyName = this.fullPartyNames[selectedParty.toUpperCase()];
-            this.correctAnswer = this.fullName;
-            //this.correctAnswer = correct ? `Rätt! ${this.fullName}<br>tillhör ${fullPartyName}.` : `Fel! ${this.fullName} tillhör<br>inte ${fullPartyName}.`;
+            if(correct){
+                this.correctAnswer = this.fullName;
+                this.store.score += 1;
+            }
+            else{
+                this.correctAnswer = this.fullName;
+                this.store.health -= 1;
+            }
+            this.handleSessionStorage();
         },
+        
         getButtonColor(party) {
             if (this.selectedParty) {
                 if (party === this.fullPartyName) {
@@ -155,6 +163,11 @@ export default {
                 }
             }
             return this.partyColors[party];
+        },
+        handleSessionStorage() {
+            // saving stats in browser tab
+            sessionStorage.setItem("health", this.store.health.toString())
+            sessionStorage.setItem("score", this.store.score.toString())
         }
     },
     template: ` 
