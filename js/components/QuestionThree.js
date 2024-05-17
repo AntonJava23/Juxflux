@@ -181,8 +181,9 @@ export default {
     template: ` 
     <div class="Questionthree">
     <div id="questionPart3">
-        Vilket parti tillhör <br>personen på bilden?
-        
+        <p class="question-text">
+            Vilket parti tillhör <br>personen på bilden?
+        </p>
         <img :src="portrait" alt="Bild på ledamot"><br>
         <div id="correctAnswer" v-html="correctAnswer"></div>
         
