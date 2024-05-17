@@ -41,7 +41,7 @@ export default {
 
     template: `
     <div class="header">
-        <img :src="lives" alt="Riksdagens logga tre kronor">
+        <img :src="lives" alt="Tre kronor">
             <div class="score-container">
                 <span>Poäng:</span>
                 <span class="score">{{ store.score }}</span>
