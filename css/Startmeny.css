@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 body::before { 
+=======
+body::before {
+>>>>>>> Stashed changes
   content: "";
   position: fixed;
   top: 0;
@@ -8,6 +12,7 @@ body::before {
   z-index: -1;
   background-image: url("../images/background.png");
   filter: opacity(10%);
+<<<<<<< Updated upstream
   
 }
  
@@ -45,4 +50,44 @@ img{
   left: 50%; /* position the button in the middle horizontally */
 
   transform: translate(-50%, -50%);
+=======
+}
+
+
+h1 {
+  text-align: center; /* center the heading text */
+  margin-bottom: 20px; /* add some space below the heading */
+  font-size: 6em; /* make the heading font size larger */
+  color: #c43939; /* dark gray text color */
+  font-style: oblique;
+}
+
+#start-page p {
+  text-align: center; /* center the paragraph text */
+  margin-bottom: 20px; /* add some space below the paragraph */
+  font-size: 2em;
+  font-style: oblique;
+  color: #dc6ebb;
+}
+
+img {
+  display: block; /* prevent the image from being inline with text */
+  margin: 0 auto; /* center the image horizontally */
+  max-width: 100%; /* scale the image to fit the container */
+  height: 10em;
+}
+
+#start-button{
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #c43939;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+>>>>>>> Stashed changes
 }
