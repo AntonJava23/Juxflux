@@ -121,8 +121,8 @@ export default {
                     </div>
 
                     <input type="button" @click="refreshMembers" value="Refresh">
-                    <input type="button" @click="this.store.health = 3" value="Reset health">
-                    <input type="button" @click="this.store.score = 0" value="Reset score">
+                    <input type="button" @click="this.store.health = 3; handleSessionStorage()" value="Reset health">
+                    <input type="button" @click="this.store.score = 0; handleSessionStorage()" value="Reset score">
                 </div>`
 }
 
