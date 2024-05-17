@@ -72,7 +72,6 @@ export default {
             // saving stats in browser tab
             sessionStorage.setItem("health", this.store.health.toString())
             sessionStorage.setItem("score", this.store.score.toString())
-            console.log("saving to session storage")
         },
 
         nextQuestion() {
