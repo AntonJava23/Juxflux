@@ -1,5 +1,3 @@
-import { store } from "../store/storeData.js";
-
 export default {
     name: "QuestionThree",
     props: {
@@ -152,7 +150,7 @@ export default {
             }
             this.handleSessionStorage();
         },
-        
+
         getButtonColor(party) {
             if (this.selectedParty) {
                 if (party === this.fullPartyName) {
