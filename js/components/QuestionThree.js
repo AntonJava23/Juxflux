@@ -130,7 +130,7 @@ export default {
         // },
 
         homeButton() {
-            window.location.href = "index.html";
+            window.location.href = "Startmeny.html";
         },
 
         /**

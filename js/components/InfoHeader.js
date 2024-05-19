@@ -33,7 +33,7 @@ export default {
 
     methods: {
         homeButton() {
-            window.location.href = "index.html";
+            window.location.href = "Startmeny.html";
         },
 
 
