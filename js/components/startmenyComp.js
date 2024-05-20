@@ -3,7 +3,9 @@ import { store } from '../store/StoreData.js'
 export default {
     created() {
         store.health = 3
+        store.score = 0
         sessionStorage.setItem('health', store.health)
+        sessionStorage.setItem('score', store.score)
     },
     methods: {
         redirect() {
