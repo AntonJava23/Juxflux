@@ -1,26 +1,22 @@
 
-import { store } from "./store/StoreData";
+//import { store } from "./store/StoreData";
 
-function showPointStore() {
+//function showPointStore() {
 
-  const pointStoreElement = document.getElementById('point-store');
-  pointStoreElement.innerHTML = `
-  <p>Pöang: ${store.points}</p>  `;
+  //const pointStoreElement = document.getElementById('point-store');
+  //pointStoreElement.innerHTML = `
+  //<p>Pöang: ${store.points}</p>  `;
 
-  }
+  //}
 
-  function restartgame(){
-    window.location.href = "index-branch2.html" 
-  }
+  //showPointStore();
 
-  function gotoStartmenu(){
-    window.location.href = "Startmeny.html"
-  }
+  const restartButton = document.getElementById('restart-button');
+  document.getElementById("restart-button").addEventListener("click", function () {
+    window.location.href = "index-branch2.html"
+  });
 
-  showPointStore();
-
-const restartButton = document.getElementById('restart-button');
-restartButton.addEventListener('click', restartgame);
-
-const startMenuButton = document.getElementById('start-menu-button');
-startMenuButton.addEventListener('click', gotoStartmenu);
+  const startMenuText = document.getElementById('start-menu-text');
+document.getElementById("start-menu-text").addEventListener("click", function () {
+  window.location.href = "StartmenyVue.html"
+});
