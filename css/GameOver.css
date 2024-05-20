@@ -74,12 +74,10 @@ body::before {
  #point {
  /* Fyverkerier */
 
-position: absolute;
-width: 420.28px;
-height: 482.01px;
-left: -25.28px;
-top: -8.79px;
 
 background-image: url("images/image.png");
+text-align: center;
+font-size: 2rem;
+    margin-bottom: 2rem;
 
  }
