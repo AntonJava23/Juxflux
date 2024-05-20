@@ -1,19 +1,19 @@
-/* * {
+* {
     border: 1px solid black;
     margin: 0.1em;
-} */
+}
 
 
 
 .member-portrait {
-    height: 200px;
+    height: 180px;
     /* Set image height */
     width: auto;
-    margin: 1em;
+
 }
 
 .member-portrait:hover {
-    margin-left: 1.15em;
+    margin-left: 0.2em;
 }
 
 
@@ -43,7 +43,7 @@
 }
 
 .member-name:hover {
-    font-size: 1.55em;
+    font-size: 1.6em;
 }
 
 .correct-name {
@@ -54,7 +54,8 @@
 #incorrect {
     width: 5%;
     margin-left: 48%;
-    display: inline-block; /* or inline */
+    display: inline-block;
+    /* or inline */
 }
 
 h1 {
@@ -67,6 +68,8 @@ h2 {
     font-weight: 200;
 }
 
+
+
 .member-name {
     padding: 0.1em;
     text-align: center;
@@ -74,11 +77,10 @@ h2 {
     background-color: rgb(218, 140, 102)
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .member-names {
-        /* width: 500px; */
+        margin-left: 9em;
+        margin-right: 9em;
     }
-
-
 
 }
