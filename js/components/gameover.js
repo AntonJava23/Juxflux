@@ -17,15 +17,12 @@ export default{
             sessionStorage.setItem('score', store.score)
             sessionStorage.setItem('health', store.health)
             window.location.href = "index-branch2.html"
-        }
-    },
+        },
 
-    methods: {
-        homeImage() {
+        homeImage(){
             window.location.href = "StartmenyVue.html";
         }
     },
-
     template: `
     <div id="app">
        <h1>Game Over</h1>
@@ -33,7 +30,7 @@ export default{
 
     <img id="firework" src="images/Fireworks.png">
       <p> {{store.score}} </p>
-      <img @click="homeImage" id="homeImage" src="images/riksdagen.png">
+      <img @click="homeImage" id="homeImage" src="images/riksdagenBig.png">
       <span> Hem </span>
       <button @click="redirect" id="restart-button">Spela Igen</button>
     </div>`
