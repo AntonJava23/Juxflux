@@ -17,7 +17,7 @@ export default {
     },
     methods: {
         redirect() {
-
+            window.location.href = "index-branch2.html"
         },
         refreshMembers() {
             //resetting values to restart the game 
@@ -135,7 +135,9 @@ export default {
                     <input type="button" @click="this.store.score = 0; handleSessionStorage()" value="Reset score"> 
                     -->
 
-                    <input type="button" value="Nästa fråga" @click="redirect">
+                    <div class="button">
+                    <input id="nasta" type="button" value="Nästa fråga" @click="redirect">
+                    </div>
                 </div>`
 }
 

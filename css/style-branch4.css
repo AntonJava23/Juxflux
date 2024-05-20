@@ -1,7 +1,7 @@
-* {
+/* * {
     border: 1px solid black;
     margin: 0.1em;
-}
+} */
 
 
 
@@ -69,6 +69,29 @@ h2 {
 }
 
 
+.button {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+#nasta {
+    width: 10em;
+    border: none;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    font-size: x-large;
+    font-family: sans-serif;
+    background-color: rgb(218, 140, 102);
+    color: white;
+    opacity: 80%;
+}
+
+#nasta:hover {
+    padding: 0.6em;
+}
 
 .member-name {
     padding: 0.1em;
