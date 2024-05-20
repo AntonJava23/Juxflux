@@ -61,6 +61,12 @@ body::before {
     margin: 0 auto;
     display: block;
     margin-bottom: 2rem;
+    width: 200px;
+    height: auto;
+  }
+
+  #homeImage:hover {
+    
   }
 
   span {
@@ -73,6 +79,11 @@ body::before {
 
  #point {
  /* Fyverkerier */
+
+
+ #point-store {
+  font-size: xx-large;
+ }
 
 
 background-image: url("images/image.png");

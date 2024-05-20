@@ -135,9 +135,11 @@ export default {
                     <input type="button" @click="this.store.score = 0; handleSessionStorage()" value="Reset score"> 
                     -->
 
+                   
                     <div class="button">
-                    <input id="nasta" type="button" value="Nästa fråga" @click="redirect">
+                        <div id="nasta" @click="redirect">Nästa fråga &rarr;</button>
                     </div>
+                    
                 </div>`
 }
 

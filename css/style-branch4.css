@@ -78,19 +78,21 @@ h2 {
 #nasta {
     width: 10em;
     border: none;
-    padding-left: 0.8em;
-    padding-right: 0.8em;
     padding: 0.5em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
     margin-bottom: 1em;
-    font-size: x-large;
+    font-size: 1em;
     font-family: sans-serif;
-    background-color: rgb(218, 140, 102);
+    background-color: rgb(51, 51, 51);
     color: white;
-    opacity: 80%;
+
+    display: flex;
+    justify-content: center;
 }
 
 #nasta:hover {
-    font-size: 1.6em;
+    font-size: 1.02em;
 }
 
 .member-name {
