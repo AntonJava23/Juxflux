@@ -12,14 +12,14 @@ body::before {
 
 
   h1 {
-    font-style: oblique;
+    font-family: sans-serif;
     text-align: center;
     font-size: 4rem;
     margin-bottom: 2rem;
   }
-   p{
+   p {
     text-align: center;
-    font-style: oblique;
+    font-family: sans-serif;
     font-size: 2rem;
     margin-bottom: 2rem;
   }

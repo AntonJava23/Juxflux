@@ -13,7 +13,7 @@ export default {
         }
     },
     template: `<div class="comp">
-                    <a href="omOss.html" id="about-button">Om oss</a>
+                    <a href="AboutUs.html" id="about-button">Om oss</a>
                     <h1>Quizdan</h1>
                     <img src="images/riksdagenBig.png">
   
