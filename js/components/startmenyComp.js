@@ -13,13 +13,13 @@ export default {
         }
     },
     template: `<div class="comp">
-                    <a href="omOss.html" id="about-button">Om oss</a>
-                    <h1>Quizdan</h1>
+                    <a href="AboutUs.html" id="about-button">Om oss</a>
+                    <div id="quizdan">Quizdan</div>
                     <img src="images/riksdagenBig.png">
   
                     <div id="start-text">
                         <p>Ett quiz för dig som vill lära dig<br>
-                         mer om ledamöterna i den<br>
+                        mer om ledamöterna i den<br>
                         svenska riksdagen.<br>
                         </p>
                         <p>
