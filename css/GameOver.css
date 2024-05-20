@@ -20,20 +20,19 @@ body::before {
     text-align: center;
   }
 
-  #game-over h1 {
+  h1 {
     font-style: oblique;
     text-align: center;
     font-size: 4rem;
     margin-bottom: 2rem;
   }
-
-  #game-over p{
+   p{
     font-style: oblique;
     font-size: 2rem;
     margin-bottom: 2rem;
   }
 
-  #game-over button {
+   button {
     padding: 1rem 2rem;
     font-size: 1.5rem;
     color: white;
@@ -44,7 +43,7 @@ body::before {
     font-style: oblique;
   }
 
-  #game-over button:hover {
+   button:hover {
     background-color: rgb(100, 190, 210);
   }
 
