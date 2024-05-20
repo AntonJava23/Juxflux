@@ -1,10 +1,26 @@
-const restartButton = document.getElementById('restart-button');
-document.getElementById("restart-button").addEventListener('click', function() {
-    // Reset the game and create a new game object
-    window.location.href = "index-branch2.html" 
-  });
 
-  const startmenutext = document.getElementById('start-menu-text');
-    document.getElementById("start-menu-text").addEventListener('click', function(){
-      window.location.href = "Startmeny.html"
-    });
+import { store } from "./store/StoreData";
+
+function showPointStore() {
+
+  const pointStoreElement = document.getElementById('point-store');
+  pointStoreElement.innerHTML = `
+  <p>Pöang: ${store.points}</p>  `;
+
+  }
+
+  function restartgame(){
+    window.location.href = "index-branch2.html" 
+  }
+
+  function gotoStartmenu(){
+    window.location.href = "Startmeny.html"
+  }
+
+  showPointStore();
+
+const restartButton = document.getElementById('restart-button');
+restartButton.addEventListener('click', restartgame);
+
+const startMenuButton = document.getElementById('start-menu-button');
+startMenuButton.addEventListener('click', gotoStartmenu);

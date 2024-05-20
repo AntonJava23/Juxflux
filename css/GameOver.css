@@ -48,6 +48,16 @@ body::before {
     background-color: rgb(100, 190, 210);
   }
 
-  #game-over img{
-    
+  #firework {
+    width: 250px; /* adjust the width to your liking */
+    height: 250px; /* adjust the height to your liking */
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: explode 2s ease-in-out infinite;
+    backdrop-filter:unset;
   }

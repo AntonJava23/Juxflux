@@ -1,6 +1,13 @@
-.member-portrait {
-    /* border: 2px solid black; */
+* {
+    /* border: 1px solid black; */
+    margin: 0.1em;
+}
 
+.member-portrait {
+    height: 200px;
+    /* Set image height */
+    width: auto;
+    margin: 1em;
 }
 
 .member-portrait:hover {
@@ -8,23 +15,49 @@
 }
 
 .member-portraits {
-    display: flex;
-    justify-content: space-evenly;
+    /*display: flex;
+     justify-content: space-evenly;
     flex-direction: row;
-    flex-wrap: wrap;
-    margin: 2em;
+    flex-wrap: wrap; */
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+
+    /* margin: 2em; */
 }
 
-.member-names {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    flex-wrap: wrap;
 
+.member-names {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
 }
 
 .member-name {
-    border: 2px solid black;
+    margin: 0.2em;
+}
+
+.correct-name {
+    background-color: rgb(147, 255, 163);
+    text-align: centeR;
+}
+
+h1 {
+    font-weight: 700;
+    text-align: center;
+    font-size:x-large
+}
+
+h2 {
+    font-weight: 200;
+}
+
+.member-name {
+    padding: 0.1em;
+    text-align: center;
+    color: white;
+    background-color: rgb(218, 140, 102)
 }
 
 .member-name:hover {

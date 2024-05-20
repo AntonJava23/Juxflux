@@ -46,7 +46,7 @@ export default {
                 portrait.style.border = ''
             }
             //selected portrait gets a border 
-            document.getElementById(evt.target.id).style.border = '4px solid green'
+            document.getElementById(evt.target.id).style.border = '4px solid rgb(218, 140, 102)'
 
             this.isPortraitSelected = true
 
@@ -90,40 +90,40 @@ export default {
         }
     },
     created() {
-        // riksdagen.getPersonList()
-        //     .then(personList => {
-        //         this.allMembers = riksdagen.getNamesAndParties(personList)
-        //         shuffle.shuffle(this.allMembers)
-        //     })
-        //     .then(() => {
-        //         for (let i = 0; i < 4; i++) {
-        //             this.members.push(this.allMembers[i])
-        //         }
-        //         this.memberNames = [...this.members] //make an independent copy of the members array
-        //         shuffle.shuffle(this.memberNames)
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //     })
+        riksdagen.getPersonList()
+            .then(personList => {
+                this.allMembers = riksdagen.getNamesAndParties(personList)
+                shuffle.shuffle(this.allMembers)
+            })
+            .then(() => {
+                for (let i = 0; i < 4; i++) {
+                    this.members.push(this.allMembers[i])
+                }
+                this.memberNames = [...this.members] //make an independent copy of the members array
+                shuffle.shuffle(this.memberNames)
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
-        const jsonData = JSON.parse(sessionStorage.getItem('questionFourStorage'))
+        // const jsonData = JSON.parse(sessionStorage.getItem('questionFourStorage'))
 
-        this.allMembers = riksdagen.getNamesAndParties(jsonData)
-        shuffle.shuffle(this.allMembers)
-        for (let i = 0; i < 4; i++) {
-            this.members.push(this.allMembers[i])
-        }
-        this.memberNames = [...this.members] //make an independent copy of the members array
-        shuffle.shuffle(this.memberNames)
+        // this.allMembers = riksdagen.getNamesAndParties(jsonData)
+        // shuffle.shuffle(this.allMembers)
+        // for (let i = 0; i < 4; i++) {
+        //     this.members.push(this.allMembers[i])
+        // }
+        // this.memberNames = [...this.members] //make an independent copy of the members array
+        // shuffle.shuffle(this.memberNames)
 
     },
     template: `<div class="comp">
-                    <h1> Markera en bild och sedan namnet du tror den tillhör </h1>
+                    <h1> Vem är vem? <br>Para ihop namn och bild </h1>
                     <div class="member-portraits">
                         <div v-for="member of members"> 
                             <img :src="member.portrait" :id="member.id" alt="member of parliament" class="member-portrait" 
-                            @click="selectMemberPortrait">
-                            <h2 v-show="member.correctAnswer"> {{ member.name }} </h2>
+                            @click="selectMemberPortrait"> 
+                            <h2 v-show="member.correctAnswer" class="correct-name"> {{ member.name }}  </h2>
                         </div>
                     </div>
                     <div class="member-names">                          <!-- adding N in id because element id must be unique -->
@@ -131,8 +131,8 @@ export default {
                     </div>
 
                     <input type="button" @click="refreshMembers" value="Refresh">
-                    <input type="button" @click="this.store.health = 3; handleSessionStorage()" value="Reset health">
-                    <input type="button" @click="this.store.score = 0; handleSessionStorage()" value="Reset score">
+                    <!-- <input type="button" @click="this.store.health = 3; handleSessionStorage()" value="Reset health">
+                    <input type="button" @click="this.store.score = 0; handleSessionStorage()" value="Reset score"> -->
                 </div>`
 }
 
