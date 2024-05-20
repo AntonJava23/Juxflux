@@ -1,4 +1,5 @@
 import { store } from '../store/StoreData.js'
+import imageCacher from '../services/imageCacher.js'
 
 export default {
     created() {
