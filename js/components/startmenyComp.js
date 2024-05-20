@@ -19,7 +19,7 @@ export default {
   
                     <div id="start-text">
                         <p>Ett quiz för dig som vill lära dig<br>
-                         mer om ledamöterna i den<br>
+                        mer om ledamöterna i den<br>
                         svenska riksdagen.<br>
                         </p>
                         <p>
