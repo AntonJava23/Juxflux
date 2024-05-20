@@ -72,12 +72,7 @@ body::before {
  }
 
  #point {
- /* Fyverkerier */
-
-
-background-image: url("images/image.png");
 text-align: center;
 font-size: 2rem;
-    margin-bottom: 2rem;
-
- }
+margin-bottom: 2rem;
+}
