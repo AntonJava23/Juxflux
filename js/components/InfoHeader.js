@@ -12,7 +12,11 @@ export default {
 
     computed: {
         lives() {
+            if (this.store.health < 1) {
+                window.location.href = "GameOver.html"
+            }
             const health = this.store.health;
+
             switch (health) {
                 case 3:
                     return '../../images/threeCrowns.png';
@@ -23,6 +27,8 @@ export default {
                 default:
                     return ''; // Handle case where health is 0 or invalid
             }
+
+            
         }
     },
 

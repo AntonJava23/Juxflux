@@ -2,8 +2,8 @@ import { store } from '../store/StoreData.js'
 
 export default {
     created() {
+        store.health = 3
         sessionStorage.setItem('health', store.health)
-
     },
     methods: {
         redirect() {

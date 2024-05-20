@@ -16,8 +16,7 @@ export default {
             showCorrect: false,
             showIncorrect: false,
             isPortraitSelected: false,
-            store,
-            gameOver: false
+            store
         }
     },
     methods: {
