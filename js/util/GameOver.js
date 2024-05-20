@@ -8,3 +8,8 @@ document.getElementById("restart-button").addEventListener('click', function() {
     document.getElementById("start-menu-text").addEventListener('click', function(){
       window.location.href = "Startmeny.html"
     });
+
+export default {
+  name: "GameOver"
+}
+

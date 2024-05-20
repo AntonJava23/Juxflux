@@ -39,7 +39,7 @@ export default {
 
     methods: {
         homeButton() {
-            window.location.href = "Startmeny.html";
+            window.location.href = "StartmenyVue.html";
         },
 
 
