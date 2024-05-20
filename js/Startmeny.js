@@ -6,15 +6,15 @@ document.getElementById("start-button").addEventListener("click", function () {
 });
 
 // fetch api data
-async function fetchData(url) {
-  const resp = await fetch(url)
-  if (resp.ok) {
-    const json = await resp.json()
-    const str = JSON.stringify(json)
-    return str
-  }
-  throw Error('Error fetching data')
-}
+// async function fetchData(url) {
+//   const resp = await fetch(url)
+//   if (resp.ok) {
+//     const json = await resp.json()
+//     const str = JSON.stringify(json)
+//     return str
+//   }
+//   throw Error('Error fetching data')
+// }
 
 // fetchData('https://data.riksdagen.se/personlista/?rdlstatus=tjanst&utformat=json')
 //   .then(str => {
@@ -33,15 +33,15 @@ async function fetchData(url) {
 //     console.log(err)
 //   })
 
-fetchData('https://data.riksdagen.se/personlista/?utformat=json&sort=parti')
-  .then(str => {
-    console.log(str)
-    //sessionStorage.setItem('questionFourStorage', str)
+// fetchData('https://data.riksdagen.se/personlista/?utformat=json&sort=parti')
+//   .then(str => {
+//     console.log(str)
+//     //sessionStorage.setItem('questionFourStorage', str)
 
-  })
-  .catch(err => {
-    console.log(err)
-  })
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
 
 // store.health = 3
 // store.score = 0
