@@ -43,11 +43,11 @@ body::before {
     background-color: rgb(100, 190, 210);
   }
 
-  #firework { 
+  /* #firework { 
     display: block;
     left: 38%;
-    width: 304px; /* adjust the width to your liking */
-    height: 250px; /* adjust the height to your liking */
+    width: 304px;
+    height: 250px; 
     margin: 10px;
     display: inline-block;
     position: relative;
@@ -57,7 +57,7 @@ body::before {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     animation: explode 2s ease-in-out infinite;
     backdrop-filter:unset;
-  }
+  } */
 
   #homeImage{
     width: 100px;
@@ -74,4 +74,17 @@ body::before {
     text-align: center;
     left: 30%;
     margin: 600px;
+ }
+
+ #point {
+ /* Fyverkerier */
+
+position: absolute;
+width: 420.28px;
+height: 482.01px;
+left: -25.28px;
+top: -8.79px;
+
+background-image: url("images/image.png");
+
  }
