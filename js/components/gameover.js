@@ -8,13 +8,13 @@ export default{
     },
 
     created() {
-        store.score = 0
-        sessionStorage.setItem('score', store.score)
     },
     methods: {
         redirect(){
             store.score = 0
+            store.health = 3
             sessionStorage.setItem('score', store.score)
+            sessionStorage.setItem('health', store.health)
             window.location.href = "index-branch2.html"
         }
     },
@@ -27,6 +27,5 @@ export default{
       <p> {{store.score}} </p>
       <img src="images/riksdagen.png">
       <button @click="redirect" id="restart-button">Spela Igen</button>
-      <game-over></game-over>
     </div>`
 }
