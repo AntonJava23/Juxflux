@@ -30,7 +30,7 @@ export default{
 
     <img id="firework" src="images/Fireworks.png">
       <p> {{store.score}} </p>
-      <img @click="homeImage" id="homeImage" src="images/riksdagen.png">
+      <img @click="homeImage" id="homeImage" src="images/riksdagenBig.png">
       <span> Hem </span>
       <button @click="redirect" id="restart-button">Spela Igen</button>
     </div>`

@@ -15,8 +15,10 @@ body::before {
     font-family: sans-serif;
     text-align: center;
     font-size: 4rem;
+    font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 2rem;
   }
+
    p {
     text-align: center;
     font-family: sans-serif;
@@ -32,15 +34,11 @@ body::before {
     padding: 1rem 2rem;
     font-size: 1.5rem;
     color: white;
-    background-color: rgb(80, 167, 190);
+    background-color: rgb(51, 51, 51);
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-style: oblique;
-  }
-
-   button:hover {
-    background-color: rgb(100, 190, 210);
+    font-style: bold;
+    transform: rotate(-1deg);
   }
 
   #firework { 
@@ -60,15 +58,12 @@ body::before {
   }
 
   #homeImage{
-    width: 100px;
-    height: 100px;
     margin: 0 auto;
     display: block;
     margin-bottom: 2rem;
   }
 
   span {
-    font-style: oblique;
     font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
