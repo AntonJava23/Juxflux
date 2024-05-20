@@ -24,3 +24,9 @@ restartButton.addEventListener('click', restartgame);
 
 const startMenuButton = document.getElementById('start-menu-button');
 startMenuButton.addEventListener('click', gotoStartmenu);
+
+
+
+const vueApp = Vue.createApp(app)
+vueApp.component('game-over', QuestionThree)
+vueApp.mount("#app")
