@@ -8,29 +8,58 @@ body::before {
     z-index: -1;
     background-image: url("../images/background.png");
     filter: opacity(10%);
-    
 }
 
-h1, h2 {
+.about-container {
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: 20px;
+    position: relative;
+    padding: 20px; /* Add some padding for mobile devices */
+    margin-top: 100px; /* Adjust this value to move the text content down */
+}
+
+.image-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.image-button img {
+    margin-top: 10px;
+    width: 80px; /* Adjust as necessary for mobile */
+}
+
+.button-text {
+    margin-top: 4px; /* Adjust as necessary */
+    font-size: 14px; /* Adjust as necessary for mobile */
 }
 
 p {
-    text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Adjust as necessary to create space between paragraphs */
 }
 
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
-    top: 20px;
-    right: 0;
-    left: 300px;
-    width: 50px; /* adjust the width and height to your needs */
-    height: 50px;
-    z-index: 1; /* add this to ensure the image is on top of other elements */
+/* Media queries for larger screens */
+@media (min-width: 768px) {
+    .about-container {
+        padding: 40px; /* Increase padding for larger screens */
+        margin-top: 150px; /* Adjust this value to move the text content down */
+    }
+
+    .image-button {
+        top: 20px;
+        right: 40px;
+    }
+
+    .image-button img {
+        width: 100px; /* Adjust as necessary for desktop */
+    }
+
+    .button-text {
+        font-size: 16px; /* Adjust as necessary for desktop */
+    }
 }

@@ -137,7 +137,7 @@ export default {
 
                    
                     <div class="button">
-                        <div id="nasta" @click="redirect">Nästa fråga &rarr;</button>
+                    <input id="nasta" type="button" value="Nästa fråga &rarr;" @click="redirect">
                     </div>
                     
                 </div>`
