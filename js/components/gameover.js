@@ -17,15 +17,12 @@ export default{
             sessionStorage.setItem('score', store.score)
             sessionStorage.setItem('health', store.health)
             window.location.href = "index-branch2.html"
-        }
-    },
+        },
 
-    methods: {
-        homeImage() {
+        homeImage(){
             window.location.href = "StartmenyVue.html";
         }
     },
-
     template: `
     <div id="app">
        <h1>Game Over</h1>
