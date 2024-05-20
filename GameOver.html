@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Over</title>
   <link rel="stylesheet" type="text/css" href="css\GameOver.css">
+
+  <script defer src="https://unpkg.com/vue@3.4.21"
+    integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
+    crossorigin="anonymous"></script>
+  <script type="module" defer src="./js/GameOver.js"></script>
 </head>
 
 <body>
-  <div id="game-over">
-    <h1>Game Over</h1>
-    <p>Din Poäng: </p>
-    <img src="images\riksdagen.png">
-    <button id="restart-button">Spela Igen</button>
-    <p id="start-menu-text">Tillbaka till hem</p>
-  </div>
-
-  <script src="js\GameOver.js"></script>
-
+    <div id="game-over">
+      <h1>Game Over</h1>
+      <p>Din Poäng: </p>
+      <img src="images\riksdagen.png">
+      <button id="restart-button">Spela Igen</button>
+      <p id="start-menu-text">Tillbaka till hem</p>
+      <game-over></game-over>
+    </div>
 </body>
 
 </html>
