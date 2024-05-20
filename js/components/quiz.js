@@ -10,12 +10,8 @@ export default {
             memberNames: [],
             selectedPortrait: 0,
             selectedName: 0,
-            correct: 0,
-            incorrect: 0,
-            showResults: false,
-            showCorrect: false,
-            showIncorrect: false,
             isPortraitSelected: false,
+            incorrectAnswer: false,
             store
         }
     },
@@ -60,8 +56,8 @@ export default {
 
                 // checking to see if correct answer or not
                 if (this.selectedName === this.selectedPortrait) {
-                    this.correct++
                     this.store.score++
+                    this.incorrectAnswer = false
 
                     for (const member of this.members) {
                         if (member.id === this.selectedPortrait) {
@@ -71,9 +67,8 @@ export default {
 
                 }
                 else {
-                    this.incorrect++
                     this.store.health--
-
+                    this.incorrectAnswer = true
                 }
 
                 console.log(this.correct + " correct " + this.incorrect + " incorrect")
@@ -126,13 +121,14 @@ export default {
                             <h2 v-show="member.correctAnswer" class="correct-name"> {{ member.name }}  </h2>
                         </div>
                     </div>
+                    <img src="../../images/incorrect.png" v-show="incorrectAnswer" id="incorrect">
                     <div class="member-names">                          <!-- adding N in id because element id must be unique -->
                         <h2 v-for="member of memberNames" class="member-name" @click="selectMemberName" :id="member.id+\'N\'"> {{ member.name }} </h2>
                     </div>
 
                     <input type="button" @click="refreshMembers" value="Refresh">
-                    <!-- <input type="button" @click="this.store.health = 3; handleSessionStorage()" value="Reset health">
-                    <input type="button" @click="this.store.score = 0; handleSessionStorage()" value="Reset score"> -->
+                    <input type="button" @click="this.store.health = 3; handleSessionStorage()" value="Reset health">
+                    <input type="button" @click="this.store.score = 0; handleSessionStorage()" value="Reset score"> 
                 </div>`
 }
 
