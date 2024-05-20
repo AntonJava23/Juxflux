@@ -129,11 +129,13 @@ export default {
                         <h2 v-for="member of memberNames" class="member-name" @click="selectMemberName" :id="member.id+\'N\'"> {{ member.name }} </h2>
                     </div>
 
+                    <!--
                     <input type="button" @click="refreshMembers" value="Refresh">
                     <input type="button" @click="this.store.health = 3; handleSessionStorage()" value="Reset health">
                     <input type="button" @click="this.store.score = 0; handleSessionStorage()" value="Reset score"> 
+                    -->
 
-                    <input type="button" @click="redirect">Nästa fråga</div>
+                    <input type="button" value="Nästa fråga" @click="redirect">
                 </div>`
 }
 

@@ -8,6 +8,7 @@ export default{
     },
 
     created() {
+        this.store.score = sessionStorage.getItem('score')
     },
     methods: {
         redirect(){
