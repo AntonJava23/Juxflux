@@ -10,15 +10,6 @@ body::before {
     filter: opacity(10%);
   }
 
-  #game-over {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem;
-    color: rgb(80, 167, 190);
-    text-align: center;
-  }
 
   h1 {
     font-style: oblique;
@@ -27,12 +18,17 @@ body::before {
     margin-bottom: 2rem;
   }
    p{
+    text-align: center;
     font-style: oblique;
     font-size: 2rem;
     margin-bottom: 2rem;
   }
 
    button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
     padding: 1rem 2rem;
     font-size: 1.5rem;
     color: white;
@@ -47,8 +43,10 @@ body::before {
     background-color: rgb(100, 190, 210);
   }
 
-  #firework {
-    width: 250px; /* adjust the width to your liking */
+  #firework { 
+    display: block;
+    left: 38%;
+    width: 304px; /* adjust the width to your liking */
     height: 250px; /* adjust the height to your liking */
     margin: 10px;
     display: inline-block;
@@ -60,3 +58,20 @@ body::before {
     animation: explode 2s ease-in-out infinite;
     backdrop-filter:unset;
   }
+
+  #homeImage{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  span {
+    font-style: oblique;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    left: 30%;
+    margin: 600px;
+ }

@@ -21,12 +21,12 @@ export default{
     template: `
     <div id="app">
        <h1>Game Over</h1>
-      <p id="point-store">
+      <p id="point-store"></p>
 
-    <img id="firework" src="images\Fireworks.png">
+    <img id="firework" src="images/Fireworks.png">
       <p> {{store.score}} </p>
-      <img src="images\riksdagen.png">
+      <img id="homeImage" src="images/riksdagen.png">
+      <span id="home"> Hem </span>
       <button @click="redirect" id="restart-button">Spela Igen</button>
-      <game-over></game-over>
     </div>`
 }
