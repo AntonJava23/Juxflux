@@ -78,7 +78,6 @@ body::before {
  }
 
  #point {
-<<<<<<< HEAD
  /* Fyverkerier */
 
 
@@ -88,8 +87,6 @@ body::before {
 
 
 background-image: url("images/image.png");
-=======
->>>>>>> refs/remotes/origin/mergingBranches
 text-align: center;
 font-size: 2rem;
 margin-bottom: 2rem;
