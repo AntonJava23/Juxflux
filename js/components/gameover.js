@@ -27,7 +27,7 @@ export default{
         },
 
         homeImage(){
-            window.location.href = "StartmenyVue.html";
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley";
         }
     },
     template: `

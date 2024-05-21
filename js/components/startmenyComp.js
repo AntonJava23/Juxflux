@@ -16,7 +16,7 @@ export default {
                     <a href="AboutUs.html" id="about-button">Om oss</a>
                     <div id="quizdan"><br>Quizdan</div>
                     <img src="images/riksdagenBig.png">
-  
+
                     <div id="start-text">
                         <p>Ett quiz för dig som vill lära dig<br>
                         mer om ledamöterna i den<br>
@@ -32,6 +32,7 @@ export default {
                         <p>
                             Lycka till!
                         </p>
+                        
                     </div>
                     <button id="start-button" @click="redirect" >
                         Spela &rarr;
