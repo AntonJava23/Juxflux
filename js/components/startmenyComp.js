@@ -14,7 +14,7 @@ export default {
     },
     template: `<div class="comp">
                     <a href="AboutUs.html" id="about-button">Om oss</a>
-                    <div id="quizdan"><br>Quizdan</div>
+                    <div id="quizdan">Quizdan</div>
                     <img src="images/riksdagenBig.png">
 
                     <div id="start-text">
