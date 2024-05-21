@@ -23,7 +23,7 @@ export default{
             store.health = 3
             sessionStorage.setItem('score', store.score)
             sessionStorage.setItem('health', store.health)
-            window.location.href = "StartmenyVue.html"
+            window.location.href = "index.html"
         },
 
         homeImage(){
