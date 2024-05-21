@@ -1,3 +1,15 @@
+/* * { 
+
+  border: 2px solid red;
+} */
+
+
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
 body::before {
     content: "";
     position: fixed;
@@ -65,8 +77,11 @@ body::before {
     height: auto;
   }
 
-  #homeImage:hover {
-    
+  #home-button {
+    background-color: white;
+    color: black;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
   }
 
   span {
@@ -78,7 +93,6 @@ body::before {
  }
 
  #point {
-<<<<<<< HEAD
  /* Fyverkerier */
 
 
@@ -87,10 +101,8 @@ body::before {
  }
 
 
-background-image: url("images/image.png");
-=======
->>>>>>> refs/remotes/origin/mergingBranches
+/* background-image: url("../images/image.png");
 text-align: center;
 font-size: 2rem;
-margin-bottom: 2rem;
+margin-bottom: 2rem; */
 }
