@@ -1,61 +1,21 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partikort</title>
-    <script defer src="https://unpkg.com/vue@3.4.21"
+  <title>Quizdan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css\Startmeny.css">
+  <script defer src="https://unpkg.com/vue@3.4.21"
         integrity="sha384-8CdW77YPqMZ3v22pThUIR22Qp1FB5oisZG2WE3OpE0l1fTHAIsdIwjQZFf/rmQ/B"
         crossorigin="anonymous"></script>
-    <script defer src="QuestionThree.js"></script>
-    <link rel="stylesheet" href="styles.css">
-
+  <script type="module" src="js/StartmenyVue.js"></script>
 </head>
 
 <body>
-    <div id="app">
-
-        <!-- <p>
-            Ledamöterns status: {{status}}
-        </p>
-        <ul>
-            <li v-for="mission in currentMissions">
-                Uppdrag: {{mission}}
-            </li>
-        </ul>
-
-        <ul>
-            <li v-for="id in ids">
-                Ledamöt: {{id}}
-            </li>
-        </ul>
-        <p>
-            Antal idn: {{idCount}}
-        </p>
-        <p>
-            Bild: <br><img :src="portrait" alt="Bild på ledamot">
-        </p>
-        <p>
-            Ledamöters namn: {{fullName}}
-        </p>  -->
-
-        <p>
-
-        <p>
-            Fråga 3:
-        </p>
-        Vilket parti tillhör personen på bilden?<br>
-        <br><img :src="portrait" alt="Bild på ledamot"><br>
-
-        <button class="buttons-question-3" id="vänster" @click="checkAnswer('v')">Vänsterpartiet</button>
-        <button class="buttons-question-3" id="höger" @click="checkAnswer('sd')">Sverigedemokraterna</button>
-
-        <div id="correctAnswer">
-            {{correctAnswer}}
-        </div>
-        </p>
-    </div>
+  <div id="app">
+    <startmeny></startmeny>
+  </div>
+  
 </body>
 
 </html>
