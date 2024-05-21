@@ -1,0 +1,90 @@
+/*Needed to place picture behind everything and ony changing this opacity to 10%*/
+body::before { 
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url("../images/background.png");
+    filter: opacity(10%);
+    
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    margin: 0;
+}
+
+.header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    margin-top: 0.5rem;
+}
+
+#threeCrowns, #riksdagen{ 
+    width: 55px;
+    height: auto;
+}
+
+.next-question { 
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    text-align: center;    
+    text-decoration: none;
+    font-size: 16;
+    border: none;
+    transform: rotate(-1deg);
+}
+
+.image-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.image-button span {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.image-button img {
+    display: block;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score {
+    margin-top: 5px; /* Adjust spacing as needed */
+    font-size: 1.2em; /* Adjust font size as needed */
+}
+
+@media (min-width: 768px) {
+    .header {
+        justify-content: center;
+        position: relative;
+    } 
+
+    .score-container {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .image-button {
+        margin-left: 20rem;
+    }
+}
