@@ -23,9 +23,9 @@ export default {
             <h1>Om Oss</h1>
             <p>
                 Vi som skapat Riksdagquizet <br> studerar på Yrgo
-                och har använt <br> oss utav Riksdagens öppna data <br>
+                och har använt <br> oss utav Riksdagens öppna api <br>
                 för att trolla fram frågor och svar <br> till vårt 
-                supersmarta quiz med fyra <br> olika frågetyper!<br> 
+                supersmarta quiz med 3 <br> olika frågetyper!<br> 
             </p>
             <h2>Vårt Team</h2>
             <p>
