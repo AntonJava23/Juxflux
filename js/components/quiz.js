@@ -116,7 +116,7 @@ export default {
 
     },
     template: `<div class="comp">
-                    <h1> Vem är vem? <br>Para ihop namn och bild </h1>
+                    <h1> Vem är vem? <br>Para ihop bild och namn </h1>
                     <div class="member-portraits">
                         <div v-for="member of members"> 
                             <img :src="member.portrait" :id="member.id" alt="member of parliament" class="member-portrait" 
